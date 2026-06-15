@@ -255,6 +255,70 @@
       color: #eefcff;
     }
 
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .photo-card {
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-weight: 700;
+      color: #102033;
+      text-align: center;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 5000;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 30px;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 14px;
+    }
+
+    #lightbox-caption {
+      color: white;
+      margin-top: 16px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .close {
+      position: absolute;
+      top: 25px;
+      right: 40px;
+      color: white;
+      font-size: 42px;
+      cursor: pointer;
+    }
+
     footer {
       padding: 45px 8%;
       text-align: center;
@@ -291,6 +355,10 @@
         min-width: 285px;
         height: 250px;
       }
+
+      .photo-card img {
+        height: 220px;
+      }
     }
   </style>
 </head>
@@ -304,6 +372,7 @@
       <a href="#research">Research</a>
       <a href="#quant">Quant</a>
       <a href="#presentations">Awards</a>
+      <a href="#photos">Photos</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -453,57 +522,119 @@
 
     <div class="slideshow">
 
-      <div class="slide" style="background-image: url('images/dis2026.jpg');">
+      <div class="slide" style="background-image: url('images/DIS.jpeg');">
         <div class="slide-content">
           <h3>DIS 2026 — Bologna, Italy</h3>
           <p>Presented research related to geometric scaling and the Electron-Ion Collider.</p>
         </div>
       </div>
 
-      <div class="slide" style="background-image: url('images/guliano-fellowship.jpg');">
-        <div class="slide-content">
-          <h3>Guliano Fellowship</h3>
-          <p>Recognized for undergraduate academic and research excellence at Stony Brook University.</p>
-        </div>
-      </div>
-
-      <div class="slide" style="background-image: url('images/sbu-physics-research-day.jpg');">
-        <div class="slide-content">
-          <h3>Stony Brook Undergraduate Physics Research Day Winner</h3>
-          <p>Awarded for undergraduate physics research presentation and communication.</p>
-        </div>
-      </div>
-
-      <div class="slide" style="background-image: url('images/yale-urc.jpg');">
-        <div class="slide-content">
-          <h3>Yale Undergraduate Research Conference</h3>
-          <p>1st Place in Physical Sciences for undergraduate research presentation.</p>
-        </div>
-      </div>
-
-      <div class="slide" style="background-image: url('images/aps-dnp.jpg');">
-        <div class="slide-content">
-          <h3>APS DNP Conference</h3>
-          <p>Presented undergraduate nuclear physics research through conference poster sessions.</p>
-        </div>
-      </div>
-
-      <div class="slide" style="background-image: url('images/nsbp-award.jpg');">
-        <div class="slide-content">
-          <h3>NSBP Presentation Award</h3>
-          <p>Recognized for undergraduate research communication and oral presentation.</p>
-        </div>
-      </div>
-
-      <div class="slide" style="background-image: url('images/bnl.jpg');">
+      <div class="slide" style="background-image: url('images/SULI1.jpeg');">
         <div class="slide-content">
           <h3>Brookhaven National Laboratory</h3>
           <p>Conducted nuclear physics research through DOE SULI and continued academic-year research.</p>
         </div>
       </div>
 
+      <div class="slide" style="background-image: url('images/NSBP.jpeg');">
+        <div class="slide-content">
+          <h3>NSBP Presentation Award</h3>
+          <p>Recognized for undergraduate research communication and oral presentation.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('images/SeawolvesDay.jpeg');">
+        <div class="slide-content">
+          <h3>Stony Brook Undergraduate Physics Research Day Winner</h3>
+          <p>Awarded for undergraduate physics research presentation and communication.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('images/Colloqium.jpeg');">
+        <div class="slide-content">
+          <h3>Physics Colloquium</h3>
+          <p>Presented and engaged with physics research in an academic setting.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('images/DSLAC.jpeg');">
+        <div class="slide-content">
+          <h3>Dean's Student Leadership Council</h3>
+          <p>Served in student leadership and academic community engagement at Stony Brook.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('images/BNLmini.jpeg');">
+        <div class="slide-content">
+          <h3>BNL Research</h3>
+          <p>Worked on nuclear physics research connected to the Electron-Ion Collider.</p>
+        </div>
+      </div>
+
     </div>
   </section>
+
+  <section id="photos">
+    <h2 class="section-title">Academic Journey</h2>
+    <p class="section-subtitle">
+      Photos from conferences, research programs, presentations, leadership, and academic milestones.
+    </p>
+
+    <div class="photo-grid">
+
+      <div class="photo-card">
+        <img src="images/DIS.jpeg" alt="DIS 2026">
+        <div class="caption">DIS 2026 — Bologna, Italy</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/SULI1.jpeg" alt="BNL SULI">
+        <div class="caption">Brookhaven National Laboratory</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/NSBP.jpeg" alt="NSBP">
+        <div class="caption">NSBP Presentation</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/SeawolvesDay.jpeg" alt="Seawolves Day">
+        <div class="caption">Stony Brook Research Day</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/Colloqium.jpeg" alt="Colloquium">
+        <div class="caption">Physics Colloquium</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/DSLAC.jpeg" alt="DSLAC">
+        <div class="caption">Dean's Student Leadership Council</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/BNLmini.jpeg" alt="BNL">
+        <div class="caption">BNL Research</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/GroupSki.jpeg" alt="Research Community">
+        <div class="caption">Research Community</div>
+      </div>
+
+      <div class="photo-card">
+        <img src="images/hbar.jpeg" alt="Physics Research">
+        <div class="caption">Physics Research</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" alt="Expanded gallery image">
+    <div id="lightbox-caption"></div>
+  </div>
 
   <section id="contact">
     <h2 class="section-title">Contact</h2>
@@ -536,6 +667,7 @@
       <a href="#research">Research</a>
       <a href="#quant">Quant</a>
       <a href="#presentations">Awards</a>
+      <a href="#photos">Photos</a>
       <a href="#contact">Contact</a>
     </p>
   </footer>
@@ -553,6 +685,30 @@
       blurFactor: 0.55,
       speed: 1.4,
       zoom: 0.75
+    });
+
+    const cards = document.querySelectorAll('.photo-card');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeButton = document.querySelector('.close');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = card.querySelector('img').src;
+        lightboxCaption.textContent = card.querySelector('.caption').textContent;
+      });
+    });
+
+    closeButton.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
     });
   </script>
 
