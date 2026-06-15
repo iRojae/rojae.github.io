@@ -183,23 +183,76 @@
       font-weight: bold;
     }
 
-    .timeline {
-      max-width: 900px;
-      margin: auto;
+    .slideshow {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 20px 4px 35px;
     }
 
-    .timeline-item {
-      margin-bottom: 22px;
-      padding: 24px;
-      background: white;
-      border-left: 5px solid #007f8f;
-      border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    .slideshow::-webkit-scrollbar {
+      height: 10px;
     }
 
-    .timeline-item h3 {
-      color: #06293d;
-      margin-bottom: 8px;
+    .slideshow::-webkit-scrollbar-track {
+      background: #d8f4f2;
+      border-radius: 999px;
+    }
+
+    .slideshow::-webkit-scrollbar-thumb {
+      background: #007f8f;
+      border-radius: 999px;
+    }
+
+    .slide {
+      position: relative;
+      min-width: 370px;
+      height: 275px;
+      border-radius: 24px;
+      overflow: hidden;
+      scroll-snap-align: start;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.16);
+      transition: 0.25s;
+    }
+
+    .slide:hover {
+      transform: translateY(-6px);
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(6, 41, 61, 0.82),
+        rgba(0, 127, 143, 0.58)
+      );
+      z-index: 1;
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: white;
+    }
+
+    .slide-content h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .slide-content p {
+      font-size: 15px;
+      color: #eefcff;
     }
 
     footer {
@@ -233,6 +286,11 @@
       .hero-card h1 {
         font-size: 42px;
       }
+
+      .slide {
+        min-width: 285px;
+        height: 250px;
+      }
     }
   </style>
 </head>
@@ -245,7 +303,7 @@
       <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#quant">Quant</a>
-      <a href="#presentations">Presentations</a>
+      <a href="#presentations">Awards</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -388,31 +446,62 @@
   </section>
 
   <section id="presentations" class="highlight">
-    <h2 class="section-title">Presentations & Awards</h2>
+    <h2 class="section-title">Presentations, Awards & Fellowships</h2>
     <p class="section-subtitle">
-      Selected research presentations, conferences, and academic recognition.
+      Selected research presentations, fellowships, conference awards, and academic recognition.
     </p>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>DIS 2026 — Bologna, Italy</h3>
-        <p>Presented research related to geometric scaling and the Electron-Ion Collider.</p>
+    <div class="slideshow">
+
+      <div class="slide" style="background-image: url('images/dis2026.jpg');">
+        <div class="slide-content">
+          <h3>DIS 2026 — Bologna, Italy</h3>
+          <p>Presented research related to geometric scaling and the Electron-Ion Collider.</p>
+        </div>
       </div>
 
-      <div class="timeline-item">
-        <h3>APS DNP Conference</h3>
-        <p>Presented undergraduate nuclear physics research through conference poster sessions.</p>
+      <div class="slide" style="background-image: url('images/guliano-fellowship.jpg');">
+        <div class="slide-content">
+          <h3>Guliano Fellowship</h3>
+          <p>Recognized for undergraduate academic and research excellence at Stony Brook University.</p>
+        </div>
       </div>
 
-      <div class="timeline-item">
-        <h3>NSBP Presentation Award</h3>
-        <p>Recognized for undergraduate research communication and oral presentation.</p>
+      <div class="slide" style="background-image: url('images/sbu-physics-research-day.jpg');">
+        <div class="slide-content">
+          <h3>Stony Brook Undergraduate Physics Research Day Winner</h3>
+          <p>Awarded for undergraduate physics research presentation and communication.</p>
+        </div>
       </div>
 
-      <div class="timeline-item">
-        <h3>Brookhaven National Laboratory</h3>
-        <p>Conducted research through DOE SULI and continued academic-year research involvement.</p>
+      <div class="slide" style="background-image: url('images/yale-urc.jpg');">
+        <div class="slide-content">
+          <h3>Yale Undergraduate Research Conference</h3>
+          <p>1st Place in Physical Sciences for undergraduate research presentation.</p>
+        </div>
       </div>
+
+      <div class="slide" style="background-image: url('images/aps-dnp.jpg');">
+        <div class="slide-content">
+          <h3>APS DNP Conference</h3>
+          <p>Presented undergraduate nuclear physics research through conference poster sessions.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('images/nsbp-award.jpg');">
+        <div class="slide-content">
+          <h3>NSBP Presentation Award</h3>
+          <p>Recognized for undergraduate research communication and oral presentation.</p>
+        </div>
+      </div>
+
+      <div class="slide" style="background-image: url('images/bnl.jpg');">
+        <div class="slide-content">
+          <h3>Brookhaven National Laboratory</h3>
+          <p>Conducted nuclear physics research through DOE SULI and continued academic-year research.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -430,7 +519,7 @@
 
       <div class="card">
         <h3>LinkedIn</h3>
-        <p><a href="https://www.linkedin.com/in/rojaemight/" target="_blank">linkedin.com/in/rojaemight</a></p>  
+        <p><a href="https://www.linkedin.com/in/rojaemight/" target="_blank">linkedin.com/in/rojaemight</a></p>
       </div>
 
       <div class="card">
@@ -446,6 +535,7 @@
       <a href="#hero">Home</a>
       <a href="#research">Research</a>
       <a href="#quant">Quant</a>
+      <a href="#presentations">Awards</a>
       <a href="#contact">Contact</a>
     </p>
   </footer>
