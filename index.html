@@ -1,77 +1,237 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Rojae Mighty</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 900px;
-            margin: auto;
-            padding: 40px;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rojae Mighty</title>
 
-        h1 {
-            color: #990000;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f8fb;
+      color: #222;
+      line-height: 1.6;
+    }
 
-        section {
-            margin-bottom: 40px;
-        }
-    </style>
+    header {
+      background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    nav {
+      background: white;
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #0b3d91;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    section {
+      background: white;
+      margin-bottom: 30px;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #0b132b;
+      border-bottom: 2px solid #3a506b;
+      padding-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #f0f4f8;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 5px solid #0b3d91;
+    }
+
+    .graphic {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      background: #0b3d91;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>Rojae Mighty</h1>
-<p>
-Physics Student at Stony Brook University<br>
-Researcher at Brookhaven National Laboratory and CFNS
-</p>
+<header>
+  <h1>Rojae Mighty</h1>
+  <p>Physics Major | Stony Brook University</p>
+  <p>Nuclear Physics • QCD • Electron-Ion Collider</p>
+</header>
 
-<section>
-<h2>About Me</h2>
-<p>
-I am an undergraduate physics student interested in nuclear physics,
-quantum chromodynamics, gluon saturation, and the future Electron-Ion Collider.
-</p>
+<nav>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#awards">Awards</a>
+  <a href="#leadership">Leadership</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+<section id="about">
+  <h2>About</h2>
+  <p>
+    I am an undergraduate physics student at Stony Brook University interested in
+    nuclear physics, quantum chromodynamics, gluon saturation, and the future
+    Electron-Ion Collider.
+  </p>
 </section>
 
-<section>
-<h2>Research</h2>
-<ul>
-<li>Brookhaven National Laboratory SULI Research Intern</li>
-<li>Center for Frontiers in Nuclear Science Researcher</li>
-<li>Geometric Scaling and Gluon Saturation Studies</li>
-<li>EIC Physics Simulations and Data Analysis</li>
-</ul>
+<section id="research">
+  <h2>Research Experience</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="graphic">⚛️</div>
+      <h3>Brookhaven National Laboratory</h3>
+      <p>SULI Research Intern, 2025</p>
+    </div>
+
+    <div class="card">
+      <div class="graphic">🌌</div>
+      <h3>Center for Frontiers in Nuclear Science</h3>
+      <p>Researcher, 2025–2026</p>
+    </div>
+
+    <div class="card">
+      <div class="graphic">📊</div>
+      <h3>Physics Analysis</h3>
+      <p>Presented nuclear physics research at regional, national, and international conferences.</p>
+    </div>
+  </div>
 </section>
 
-<section>
-<h2>Awards</h2>
-<ul>
-<li>Barry Barish Undergraduate Research Travel Award</li>
-<li>Edward Guiliano Global Fellowship</li>
-<li>1st Place Physical Sciences Poster - Yale URC</li>
-<li>Outstanding Oral Presentation - NSBP</li>
-</ul>
+<section id="awards">
+  <h2>Honors & Awards</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="graphic">🏆</div>
+      <h3>Yale URC</h3>
+      <p>1st Place Physical Sciences Poster, 2026</p>
+    </div>
+
+    <div class="card">
+      <div class="graphic">🎤</div>
+      <h3>NSBP Conference</h3>
+      <p>Outstanding Oral Presentation Award, 2025</p>
+    </div>
+
+    <div class="card">
+      <div class="graphic">✈️</div>
+      <h3>Barry Barish Award</h3>
+      <p>Undergraduate Research Travel Award, 2026</p>
+    </div>
+
+    <div class="card">
+      <div class="graphic">🌍</div>
+      <h3>Global Fellowship</h3>
+      <p>Edward Guiliano Global Fellowship, 2026</p>
+    </div>
+  </div>
 </section>
 
-<section>
-<h2>Leadership</h2>
-<ul>
-<li>Dean's Student Leadership & Advisory Council</li>
-<li>CSTEP Mentor</li>
-<li>CAS Ambassador</li>
-<li>Socially Just Seawolves</li>
-</ul>
+<section id="leadership">
+  <h2>Leadership & Involvement</h2>
+
+  <ul>
+    <li>Dean’s Student Leadership & Advisory Council for the College of Arts and Sciences</li>
+    <li>CAS Ambassador and Admitted Seawolves Day panel representative</li>
+    <li>Socially Just Seawolves</li>
+    <li>CSTEP Mentor for STEM students</li>
+    <li>RAM Program Work Study at Farmingdale State College</li>
+  </ul>
 </section>
 
-<section>
-<h2>Contact</h2>
-<p>
-Email: rojae.mighty@stonybrook.edu
-</p>
+<section id="skills">
+  <h2>Technical Skills</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="graphic">💻</div>
+      <h3>Programming</h3>
+      <p>ROOT/C++</p>
+    </div>
+
+    <div class="card">
+      <div class="graphic">📄</div>
+      <h3>Scientific Writing</h3>
+      <p>LaTeX</p>
+    </div>
+
+    <div class="card">
+      <div class="graphic">🧰</div>
+      <h3>Productivity</h3>
+      <p>Microsoft Office, Google Workspace</p>
+    </div>
+  </div>
 </section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: rojae.mighty@stonybrook.edu</p>
+  <p>Location: New York, NY</p>
+</section>
+
+</div>
+
+<footer>
+  <p>© 2026 Rojae Mighty</p>
+</footer>
 
 </body>
 </html>
