@@ -5,233 +5,466 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rojae Mighty</title>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f8fb;
-      color: #222;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fbff;
+      color: #102033;
       line-height: 1.6;
     }
 
-    header {
-      background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
-      color: white;
-      padding: 70px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 48px;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 20px;
-      margin-top: 10px;
-    }
-
     nav {
-      background: white;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
+      position: fixed;
       top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+
+    nav h2 {
+      color: #0b3d5c;
+      font-size: 22px;
     }
 
     nav a {
-      margin: 0 15px;
+      margin-left: 22px;
+      color: #102033;
       text-decoration: none;
-      color: #0b3d91;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 14px;
     }
 
-    .container {
-      max-width: 1000px;
+    nav a:hover {
+      color: #008f8c;
+    }
+
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+
+    .hero-card {
+      max-width: 900px;
+      padding: 55px;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .hero-card h1 {
+      font-size: 58px;
+      color: #06293d;
+      margin-bottom: 12px;
+    }
+
+    .hero-card h3 {
+      font-size: 23px;
+      color: #006f7f;
+      margin-bottom: 22px;
+    }
+
+    .hero-card p {
+      font-size: 18px;
+      color: #17384d;
+      max-width: 750px;
       margin: auto;
-      padding: 40px 20px;
+    }
+
+    .buttons {
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 24px;
+      margin: 8px;
+      border-radius: 999px;
+      background: #007f8f;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.25s;
+    }
+
+    .btn.secondary {
+      background: white;
+      color: #007f8f;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
     }
 
     section {
-      background: white;
-      margin-bottom: 30px;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      padding: 90px 8%;
     }
 
-    h2 {
-      color: #0b132b;
-      border-bottom: 2px solid #3a506b;
-      padding-bottom: 8px;
+    .section-title {
+      font-size: 36px;
+      color: #06293d;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 50px;
+      color: #46606f;
+      font-size: 17px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 26px;
     }
 
     .card {
-      background: #f0f4f8;
-      padding: 20px;
-      border-radius: 12px;
-      border-left: 5px solid #0b3d91;
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0, 127, 143, 0.12);
+      transition: 0.25s;
     }
 
-    .graphic {
-      font-size: 42px;
-      margin-bottom: 10px;
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.12);
     }
 
-    .button {
+    .card h3 {
+      color: #007f8f;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #385363;
+      font-size: 15.5px;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #e9fbff, #ecfff8);
+    }
+
+    .tag {
       display: inline-block;
-      padding: 12px 18px;
-      background: #0b3d91;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-top: 10px;
+      margin: 6px 6px 0 0;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: #e4f7f7;
+      color: #006f7f;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .timeline {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      margin-bottom: 22px;
+      padding: 24px;
+      background: white;
+      border-left: 5px solid #007f8f;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    }
+
+    .timeline-item h3 {
+      color: #06293d;
+      margin-bottom: 8px;
     }
 
     footer {
+      padding: 45px 8%;
       text-align: center;
-      padding: 30px;
-      color: #666;
+      background: #06293d;
+      color: white;
+    }
+
+    footer a {
+      color: #8ef3ef;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 13px;
+      }
+
+      .hero-card {
+        padding: 35px 24px;
+      }
+
+      .hero-card h1 {
+        font-size: 42px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Rojae Mighty</h1>
-  <p>Physics Major | Stony Brook University</p>
-  <p>Nuclear Physics • QCD • Electron-Ion Collider</p>
-</header>
-
-<nav>
-  <a href="#about">About</a>
-  <a href="#research">Research</a>
-  <a href="#awards">Awards</a>
-  <a href="#leadership">Leadership</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<div class="container">
-
-<section id="about">
-  <h2>About</h2>
-  <p>
-    I am an undergraduate physics student at Stony Brook University interested in
-    nuclear physics, quantum chromodynamics, gluon saturation, and the future
-    Electron-Ion Collider.
-  </p>
-</section>
-
-<section id="research">
-  <h2>Research Experience</h2>
-
-  <div class="grid">
-    <div class="card">
-      <div class="graphic">⚛️</div>
-      <h3>Brookhaven National Laboratory</h3>
-      <p>SULI Research Intern, 2025</p>
+  <nav>
+    <h2>Rojae Mighty</h2>
+    <div>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#quant">Quant</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#contact">Contact</a>
     </div>
+  </nav>
 
-    <div class="card">
-      <div class="graphic">🌌</div>
-      <h3>Center for Frontiers in Nuclear Science</h3>
-      <p>Researcher, 2025–2026</p>
+  <header id="hero">
+    <div class="hero-card">
+      <h1>Rojae Mighty</h1>
+      <h3>Physics Undergraduate Researcher | Stony Brook University</h3>
+      <p>
+        I study nuclear physics, gluon saturation, geometric scaling, and computational methods
+        for high-energy collisions. My work combines physics, numerical analysis, C++/ROOT,
+        and data-driven modeling.
+      </p>
+
+      <div class="buttons">
+        <a class="btn" href="#research">View Research</a>
+        <a class="btn secondary" href="#quant">Quant Profile</a>
+        <a class="btn secondary" href="Rojae_Mighty_CV.pdf" target="_blank">Download CV</a>
+      </div>
     </div>
+  </header>
 
-    <div class="card">
-      <div class="graphic">📊</div>
-      <h3>Physics Analysis</h3>
-      <p>Presented nuclear physics research at regional, national, and international conferences.</p>
+  <section id="about">
+    <h2 class="section-title">About</h2>
+    <p class="section-subtitle">
+      I am a physics student at Stony Brook University interested in nuclear physics,
+      the Electron-Ion Collider, computational physics, and quantitative research.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Academic Focus</h3>
+        <p>
+          My academic work centers on high-energy nuclear physics, QCD, parton structure,
+          gluon saturation, and the physics goals of the Electron-Ion Collider.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Computational Skills</h3>
+        <p>
+          I use C++, ROOT, Python, Unix/Linux, numerical simulations, Monte Carlo event
+          generators, and data analysis workflows for physics research.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Career Goals</h3>
+        <p>
+          I plan to pursue a PhD in nuclear physics and contribute to research at the
+          intersection of theory, computation, and experimental data.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="awards">
-  <h2>Honors & Awards</h2>
+  <section id="research" class="highlight">
+    <h2 class="section-title">Research</h2>
+    <p class="section-subtitle">
+      My research explores how nuclear structure and QCD dynamics can be studied through
+      simulations, scaling behavior, and collision observables.
+    </p>
 
-  <div class="grid">
-    <div class="card">
-      <div class="graphic">🏆</div>
-      <h3>Yale URC</h3>
-      <p>1st Place Physical Sciences Poster, 2026</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Geometric Scaling at the EIC</h3>
+        <p>
+          Studying exclusive vector meson production in electron-nucleus collisions to
+          investigate saturation signatures and scaling behavior.
+        </p>
+        <span class="tag">EIC</span>
+        <span class="tag">QCD</span>
+        <span class="tag">Saturation</span>
+      </div>
+
+      <div class="card">
+        <h3>Centrality Studies</h3>
+        <p>
+          Using neutron energy in the Zero Degree Calorimeter to classify collision
+          geometry and connect observables to impact parameter and nuclear thickness.
+        </p>
+        <span class="tag">ZDC</span>
+        <span class="tag">ROOT</span>
+        <span class="tag">Monte Carlo</span>
+      </div>
+
+      <div class="card">
+        <h3>EPS09s and Nuclear PDFs</h3>
+        <p>
+          Implementing and validating spatially dependent nuclear PDFs to study how
+          parton distributions change inside nuclei.
+        </p>
+        <span class="tag">nPDF</span>
+        <span class="tag">EPS09s</span>
+        <span class="tag">PYTHIA</span>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <div class="graphic">🎤</div>
-      <h3>NSBP Conference</h3>
-      <p>Outstanding Oral Presentation Award, 2025</p>
+  <section id="quant">
+    <h2 class="section-title">Quantitative Research & Computing</h2>
+    <p class="section-subtitle">
+      Alongside physics research, I am interested in quantitative research internships
+      where mathematical modeling, programming, statistics, and data analysis are central.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Relevant Strengths</h3>
+        <p>
+          My physics background gives me experience with mathematical modeling, probability,
+          numerical methods, uncertainty analysis, and interpreting complex data.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Programming & Analysis</h3>
+        <p>
+          I have experience writing C++ and ROOT analysis code, processing large simulation
+          outputs, debugging scientific software, and producing quantitative plots.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Quant Internship Interests</h3>
+        <p>
+          I am interested in quant research, quant development, algorithmic modeling,
+          data science, and roles that connect computation with rigorous problem solving.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Transferable Research Experience</h3>
+        <p>
+          My research involves simulation validation, statistical comparisons, model testing,
+          parameter studies, and communicating technical results clearly.
+        </p>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <div class="graphic">✈️</div>
-      <h3>Barry Barish Award</h3>
-      <p>Undergraduate Research Travel Award, 2026</p>
+  <section id="presentations" class="highlight">
+    <h2 class="section-title">Presentations & Awards</h2>
+    <p class="section-subtitle">
+      Selected research presentations, conferences, and academic recognition.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>DIS 2026 — Bologna, Italy</h3>
+        <p>Presented research related to geometric scaling and the Electron-Ion Collider.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>APS DNP Conference</h3>
+        <p>Presented undergraduate nuclear physics research through conference poster sessions.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>NSBP Presentation Award</h3>
+        <p>Recognized for undergraduate research communication and oral presentation.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Brookhaven National Laboratory</h3>
+        <p>Conducted research through DOE SULI and continued academic-year research involvement.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <div class="graphic">🌍</div>
-      <h3>Global Fellowship</h3>
-      <p>Edward Guiliano Global Fellowship, 2026</p>
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-subtitle">
+      For research, collaboration, graduate school, or internship opportunities.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Email</h3>
+        <p><a href="mailto:rojae.mighty@stonybrook.edu">rojae.mighty@stonybrook.edu</a></p>
+      </div>
+
+      <div class="card">
+        <h3>LinkedIn</h3>
+        <p><a href="#" target="_blank">Add your LinkedIn link here</a></p>
+      </div>
+
+      <div class="card">
+        <h3>GitHub</h3>
+        <p><a href="#" target="_blank">Add your GitHub link here</a></p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="leadership">
-  <h2>Leadership & Involvement</h2>
+  <footer>
+    <p>© 2026 Rojae Mighty</p>
+    <p>
+      <a href="#hero">Home</a>
+      <a href="#research">Research</a>
+      <a href="#quant">Quant</a>
+      <a href="#contact">Contact</a>
+    </p>
+  </footer>
 
-  <ul>
-    <li>Dean’s Student Leadership & Advisory Council for the College of Arts and Sciences</li>
-    <li>CAS Ambassador and Admitted Seawolves Day panel representative</li>
-    <li>Socially Just Seawolves</li>
-    <li>CSTEP Mentor for STEM students</li>
-    <li>RAM Program Work Study at Farmingdale State College</li>
-  </ul>
-</section>
-
-<section id="skills">
-  <h2>Technical Skills</h2>
-
-  <div class="grid">
-    <div class="card">
-      <div class="graphic">💻</div>
-      <h3>Programming</h3>
-      <p>ROOT/C++</p>
-    </div>
-
-    <div class="card">
-      <div class="graphic">📄</div>
-      <h3>Scientific Writing</h3>
-      <p>LaTeX</p>
-    </div>
-
-    <div class="card">
-      <div class="graphic">🧰</div>
-      <h3>Productivity</h3>
-      <p>Microsoft Office, Google Workspace</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: rojae.mighty@stonybrook.edu</p>
-  <p>Location: New York, NY</p>
-</section>
-
-</div>
-
-<footer>
-  <p>© 2026 Rojae Mighty</p>
-</footer>
+  <script>
+    VANTA.FOG({
+      el: "#hero",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      highlightColor: 0x88fff2,
+      midtoneColor: 0x6bb6ff,
+      lowlightColor: 0x0b132b,
+      baseColor: 0xffffff,
+      blurFactor: 0.55,
+      speed: 1.4,
+      zoom: 0.75
+    });
+  </script>
 
 </body>
 </html>
