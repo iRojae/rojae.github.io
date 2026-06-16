@@ -789,7 +789,7 @@
         const progress = clamp(-rect.top / scrollableDistance, 0, 1);
         const scale = 1 - progress * 0.2;
         const radius = 34 - progress * 26;
-        const captionExitProgress = clamp((0.85 - scale) / 0.04, 0, 1);
+        const captionExitProgress = clamp((0.9 - scale) / 0.04, 0, 1);
         const captionOffset = captionExitProgress * -48;
 
         scrollZoomVideoFrame.style.transform = "scale(" + scale.toFixed(3) + ")";
