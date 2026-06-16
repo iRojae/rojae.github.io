@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rojae Mighty</title>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
-
   <style>
     * {
       margin: 0;
@@ -55,22 +52,36 @@
     }
 
     #hero {
+      position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 120px 20px 80px;
+      overflow: hidden;
+      background: #f7fbff;
+    }
+
+    #collision-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .hero-card {
+      position: relative;
+      z-index: 1;
       max-width: 900px;
       padding: 55px;
-      background: rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.68);
       backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.75);
       border-radius: 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.13);
     }
 
     .hero-card h1 {
@@ -378,6 +389,8 @@
   </nav>
 
   <header id="hero">
+    <canvas id="collision-bg"></canvas>
+
     <div class="hero-card">
       <h1>Rojae Mighty</h1>
       <h3>Physics Undergraduate Researcher | Stony Brook University</h3>
@@ -587,7 +600,7 @@
 
       <div class="photo-card">
         <img src="images/DIS.jpeg" alt="DIS 2026">
-        <div class="caption">DIS 2026 at Bologna, Italy - Fist International Conference</div>
+        <div class="caption">DIS 2026 at Bologna, Italy - First International Conference</div>
       </div>
 
       <div class="photo-card">
@@ -597,7 +610,7 @@
 
       <div class="photo-card">
         <img src="images/hbar.jpeg" alt="Celebrating Undergraduate Research Day with Kong and Abhay Deshpande">
-        <div class="caption"></div>
+        <div class="caption">Celebrating Undergraduate Research Day with Kong and Abhay Deshpande</div>
       </div>
 
       <div class="photo-card">
@@ -656,19 +669,145 @@
   </footer>
 
   <script>
-    VANTA.FOG({
-      el: "#hero",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      highlightColor: 0x88fff2,
-      midtoneColor: 0x6bb6ff,
-      lowlightColor: 0x0b132b,
-      baseColor: 0xffffff,
-      blurFactor: 0.55,
-      speed: 1.4,
-      zoom: 0.75
-    });
+    const canvas = document.getElementById("collision-bg");
+    const ctx = canvas.getContext("2d");
+
+    let width, height, centerX, centerY, radius;
+    let tracks = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = document.getElementById("hero").offsetHeight;
+      centerX = width / 2;
+      centerY = height / 2;
+      radius = Math.min(width, height) * 0.32;
+      createTracks();
+    }
+
+    function createTracks() {
+      tracks = [];
+
+      const numberOfTracks = width < 760 ? 85 : 150;
+
+      for (let i = 0; i < numberOfTracks; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const length = radius * (0.35 + Math.random() * 0.75);
+        const curve = (Math.random() - 0.5) * 0.55;
+        const speed = 0.0015 + Math.random() * 0.003;
+        const colorSet = [
+          "rgba(0, 127, 143, ",
+          "rgba(0, 95, 180, ",
+          "rgba(95, 75, 190, ",
+          "rgba(20, 170, 165, "
+        ];
+
+        tracks.push({
+          angle,
+          length,
+          curve,
+          speed,
+          phase: Math.random() * Math.PI * 2,
+          color: colorSet[Math.floor(Math.random() * colorSet.length)],
+          opacity: 0.18 + Math.random() * 0.22,
+          width: 0.7 + Math.random() * 1.2
+        });
+      }
+    }
+
+    function drawDetector() {
+      ctx.save();
+      ctx.translate(centerX, centerY);
+
+      ctx.strokeStyle = "rgba(6, 41, 61, 0.12)";
+      ctx.lineWidth = 1.3;
+
+      for (let r of [radius * 0.32, radius * 0.55, radius * 0.78, radius]) {
+        ctx.beginPath();
+        ctx.arc(0, 0, r, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      ctx.strokeStyle = "rgba(6, 41, 61, 0.10)";
+      ctx.lineWidth = 1;
+
+      for (let i = 0; i < 24; i++) {
+        const a = (i / 24) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.moveTo(Math.cos(a) * radius * 0.25, Math.sin(a) * radius * 0.25);
+        ctx.lineTo(Math.cos(a) * radius, Math.sin(a) * radius);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = "rgba(0, 127, 143, 0.22)";
+      ctx.beginPath();
+      ctx.arc(0, 0, 5, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function drawTracks(time) {
+      ctx.save();
+      ctx.translate(centerX, centerY);
+
+      tracks.forEach(track => {
+        const pulse = 0.65 + 0.35 * Math.sin(time * track.speed + track.phase);
+        const opacity = track.opacity * pulse;
+
+        const startR = radius * 0.05;
+        const endR = track.length;
+        const angle = track.angle + 0.08 * Math.sin(time * track.speed + track.phase);
+
+        const x1 = Math.cos(angle) * startR;
+        const y1 = Math.sin(angle) * startR;
+        const x2 = Math.cos(angle) * endR;
+        const y2 = Math.sin(angle) * endR;
+
+        const midAngle = angle + track.curve;
+        const cx = Math.cos(midAngle) * endR * 0.48;
+        const cy = Math.sin(midAngle) * endR * 0.48;
+
+        ctx.strokeStyle = track.color + opacity + ")";
+        ctx.lineWidth = track.width;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.quadraticCurveTo(cx, cy, x2, y2);
+        ctx.stroke();
+
+        if (Math.random() > 0.985) {
+          ctx.fillStyle = track.color + Math.min(opacity + 0.15, 0.55) + ")";
+          ctx.beginPath();
+          ctx.arc(x2, y2, 1.8, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+
+      ctx.restore();
+    }
+
+    function animate(time) {
+      ctx.clearRect(0, 0, width, height);
+
+      const gradient = ctx.createRadialGradient(
+        centerX, centerY, radius * 0.1,
+        centerX, centerY, radius * 1.25
+      );
+      gradient.addColorStop(0, "rgba(220, 252, 255, 0.45)");
+      gradient.addColorStop(0.55, "rgba(247, 251, 255, 0.85)");
+      gradient.addColorStop(1, "rgba(247, 251, 255, 1)");
+
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      drawDetector();
+      drawTracks(time);
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    requestAnimationFrame(animate);
 
     const cards = document.querySelectorAll('.photo-card');
     const lightbox = document.getElementById('lightbox');
