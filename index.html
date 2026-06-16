@@ -15,7 +15,7 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f8fbff;
+      background: #f7fbff;
       color: #102033;
       line-height: 1.6;
     }
@@ -29,9 +29,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.45);
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.3);
     }
 
     nav h2 {
@@ -60,10 +60,10 @@
       text-align: center;
       padding: 120px 20px 80px;
       overflow: hidden;
-      background: linear-gradient(135deg, #f8fbff, #eef5ff);
+      background: #f7fbff;
     }
 
-    #gluon-bg {
+    #collision-bg {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -75,11 +75,11 @@
     .hero-card {
       position: relative;
       z-index: 1;
-      max-width: 900px;
+      max-width: 880px;
       padding: 55px;
-      background: rgba(255, 255, 255, 0.66);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.53);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.82);
       border-radius: 28px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.13);
     }
@@ -180,7 +180,7 @@
     }
 
     .highlight {
-      background: linear-gradient(135deg, #f8fbff, #f4f6fa);
+      background: linear-gradient(135deg, #e9fbff, #ecfff8);
     }
 
     .tag {
@@ -200,20 +200,6 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       padding: 20px 4px 35px;
-    }
-
-    .slideshow::-webkit-scrollbar {
-      height: 10px;
-    }
-
-    .slideshow::-webkit-scrollbar-track {
-      background: #dce8f0;
-      border-radius: 999px;
-    }
-
-    .slideshow::-webkit-scrollbar-thumb {
-      background: #007f8f;
-      border-radius: 999px;
     }
 
     .slide {
@@ -237,11 +223,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(6, 41, 61, 0.82),
-        rgba(0, 127, 143, 0.58)
-      );
+      background: linear-gradient(135deg, rgba(6, 41, 61, 0.82), rgba(0, 127, 143, 0.58));
       z-index: 1;
     }
 
@@ -254,16 +236,6 @@
       flex-direction: column;
       justify-content: flex-end;
       color: white;
-    }
-
-    .slide-content h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .slide-content p {
-      font-size: 15px;
-      color: #eefcff;
     }
 
     .photo-grid {
@@ -381,7 +353,6 @@
     <div>
       <a href="#about">About</a>
       <a href="#research">Research</a>
-      <a href="#quant">Quant</a>
       <a href="#awards">Awards</a>
       <a href="#photos">Photos</a>
       <a href="#contact">Contact</a>
@@ -389,7 +360,7 @@
   </nav>
 
   <header id="hero">
-    <canvas id="gluon-bg"></canvas>
+    <canvas id="collision-bg"></canvas>
 
     <div class="hero-card">
       <h1>Rojae Mighty</h1>
@@ -402,7 +373,7 @@
 
       <div class="buttons">
         <a class="btn" href="#research">View Research</a>
-        <a class="btn secondary" href="#quant">Quant Profile</a>
+        <a class="btn secondary" href="#awards">Awards</a>
         <a class="btn secondary" href="Rojae_Mighty_CV.pdf" target="_blank">Download CV</a>
       </div>
     </div>
@@ -443,86 +414,45 @@
   </section>
 
   <section id="research" class="highlight">
-    <h2 class="section-title">Research</h2>
+    <h2 class="section-title">Research & Quantitative Work</h2>
     <p class="section-subtitle">
-      My research explores how nuclear structure and QCD dynamics can be studied through
-      simulations, scaling behavior, and collision observables.
+      My work connects nuclear physics, computational modeling, data analysis, and quantitative problem solving.
     </p>
 
     <div class="grid">
       <div class="card">
-        <h3>Geometric Scaling at the EIC</h3>
+        <h3>Gluon Saturation at the EIC</h3>
         <p>
-          Studying exclusive vector meson production in electron-nucleus collisions to
-          investigate saturation signatures and scaling behavior.
+          Studying exclusive vector meson production in electron-nucleus collisions to investigate
+          gluon saturation, geometric scaling, and QCD dynamics at small x.
         </p>
         <span class="tag">EIC</span>
         <span class="tag">QCD</span>
-        <span class="tag">Saturation</span>
+        <span class="tag">Gluon Saturation</span>
       </div>
 
       <div class="card">
-        <h3>Centrality Studies</h3>
+        <h3>Centrality & Nuclear PDFs</h3>
         <p>
-          Using neutron energy in the Zero Degree Calorimeter to classify collision
-          geometry and connect observables to impact parameter and nuclear thickness.
+          Using neutron energy in the Zero Degree Calorimeter to study collision geometry while
+          implementing spatially dependent nuclear PDFs to examine how parton distributions change inside nuclei.
         </p>
         <span class="tag">ZDC</span>
-        <span class="tag">ROOT</span>
-        <span class="tag">Monte Carlo</span>
-      </div>
-
-      <div class="card">
-        <h3>EPS09s and Nuclear PDFs</h3>
-        <p>
-          Implementing and validating spatially dependent nuclear PDFs to study how
-          parton distributions change inside nuclei.
-        </p>
         <span class="tag">nPDF</span>
         <span class="tag">EPS09s</span>
         <span class="tag">PYTHIA</span>
       </div>
-    </div>
-  </section>
-
-  <section id="quant">
-    <h2 class="section-title">Quantitative Research & Computing</h2>
-    <p class="section-subtitle">
-      Alongside physics research, I am interested in quantitative research internships
-      where mathematical modeling, programming, statistics, and data analysis are central.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Relevant Strengths</h3>
-        <p>
-          My physics background gives me experience with mathematical modeling, probability,
-          numerical methods, uncertainty analysis, and interpreting complex data.
-        </p>
-      </div>
 
       <div class="card">
-        <h3>Programming & Analysis</h3>
+        <h3>Quantitative Research</h3>
         <p>
-          I have experience writing C++ and ROOT analysis code, processing large simulation
-          outputs, debugging scientific software, and producing quantitative plots.
+          Applying mathematical modeling, programming, statistical analysis, simulation validation,
+          and large-scale data processing to physics research and quantitative problem solving.
         </p>
-      </div>
-
-      <div class="card">
-        <h3>Quant Internship Interests</h3>
-        <p>
-          I am interested in quant research, quant development, algorithmic modeling,
-          data science, and roles that connect computation with rigorous problem solving.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Transferable Research Experience</h3>
-        <p>
-          My research involves simulation validation, statistical comparisons, model testing,
-          parameter studies, and communicating technical results clearly.
-        </p>
+        <span class="tag">C++</span>
+        <span class="tag">ROOT</span>
+        <span class="tag">Python</span>
+        <span class="tag">Data Analysis</span>
       </div>
     </div>
   </section>
@@ -534,7 +464,6 @@
     </p>
 
     <div class="slideshow">
-
       <div class="slide" style="background-image: url('images/BarryBarrish.jpeg');">
         <div class="slide-content">
           <h3>Barry Barish Travel Grant</h3>
@@ -555,7 +484,6 @@
           <p>Recognized by the National Society of Black Physicists for undergraduate research communication.</p>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -566,20 +494,19 @@
     </p>
 
     <div class="photo-grid">
-
       <div class="photo-card">
         <img src="images/bnlmini.jpeg" alt="BNL Mini-Semester">
-        <div class="caption">BNL Mini-Semester — First BNL Experience</div>
+        <div class="caption">Brookhaven National Lab Mini-Semester — First BNL Experience</div>
       </div>
 
       <div class="photo-card">
         <img src="images/suli1.jpeg" alt="DOE SULI at BNL">
-        <div class="caption">DOE SULI at Brookhaven National Laboratory</div>
+        <div class="caption">Summer Undergraduate Laboratory Internship at BNL</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/TeamStar.jpg" alt="STAR Collaboration Event">
-        <div class="caption">STAR Collaboration Event at BNL</div>
+        <img src="images/star.jpg" alt="STAR Collaboration Event">
+        <div class="caption">BNL Basketball Tournament, Team STAR</div>
       </div>
 
       <div class="photo-card">
@@ -594,17 +521,17 @@
 
       <div class="photo-card">
         <img src="images/DIS.jpeg" alt="DIS 2026">
-        <div class="caption">DIS 2026 — International Conference Presentation</div>
+        <div class="caption">DIS 2026 at Bologna, Italy — First International Conference</div>
       </div>
 
       <div class="photo-card">
         <img src="images/colloqium.jpeg" alt="Stony Brook Physics Colloquium">
-        <div class="caption">Stony Brook Physics Colloquium</div>
+        <div class="caption">Speaking at Stony Brook Physics Colloquium</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/hbar.jpeg" alt="Celebrating after the colloquium">
-        <div class="caption">Celebrating with Abhay Deshpande after the Colloquium</div>
+        <img src="images/hbar.jpeg" alt="Celebrating Undergraduate Research Day with Kong and Abhay Deshpande">
+        <div class="caption">Celebrating Undergraduate Research Day with Kong and Abhay Deshpande</div>
       </div>
 
       <div class="photo-card">
@@ -616,7 +543,6 @@
         <img src="images/DSLAC.jpeg" alt="Dean's Student Leadership and Advisory Council">
         <div class="caption">Dean's Student Leadership & Advisory Council</div>
       </div>
-
     </div>
   </section>
 
@@ -655,7 +581,6 @@
     <p>
       <a href="#hero">Home</a>
       <a href="#research">Research</a>
-      <a href="#quant">Quant</a>
       <a href="#awards">Awards</a>
       <a href="#photos">Photos</a>
       <a href="#contact">Contact</a>
@@ -663,20 +588,15 @@
   </footer>
 
   <script>
-    const canvas = document.getElementById("gluon-bg");
+    const canvas = document.getElementById("collision-bg");
     const ctx = canvas.getContext("2d");
-    const hero = document.getElementById("hero");
 
-    let W, H;
-    let currentEvent = null;
-    let eventNumber = 0;
-    let lastEventStart = -7000;
+    let width, height;
+    let fluctuations = [];
+    let quarks = [];
+    let collisionVertices = [];
 
-    const EVENT_DURATION = 5000;
-    const EVENT_GAP = 2000;
-    const EVENT_TOTAL = EVENT_DURATION + EVENT_GAP;
-
-    const colors = [
+    const themeColors = [
       "rgba(0, 127, 143, ",
       "rgba(0, 95, 180, ",
       "rgba(95, 75, 190, ",
@@ -685,273 +605,314 @@
     ];
 
     function resizeCanvas() {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = hero.offsetHeight;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = document.getElementById("hero").offsetHeight;
+      createCollisionVertices();
     }
 
-    function pickColor() {
-      return colors[Math.floor(Math.random() * colors.length)];
+    function randomColor() {
+      return themeColors[Math.floor(Math.random() * themeColors.length)];
     }
 
-    function pickEventPosition() {
-      const regions = [
-        { x: 0.18, y: 0.30 },
-        { x: 0.82, y: 0.28 },
-        { x: 0.16, y: 0.72 },
-        { x: 0.84, y: 0.70 },
-        { x: 0.50, y: 0.18 },
-        { x: 0.50, y: 0.82 }
-      ];
+    function createFluctuation() {
+      const avoidCenterX = width * 0.5;
+      const avoidCenterY = height * 0.52;
 
-      const r = regions[Math.floor(Math.random() * regions.length)];
+      let x = Math.random() * width;
+      let y = Math.random() * height;
 
-      return {
-        x: W * r.x + (Math.random() - 0.5) * W * 0.12,
-        y: H * r.y + (Math.random() - 0.5) * H * 0.12
-      };
-    }
+      const nearCard =
+        Math.abs(x - avoidCenterX) < width * 0.28 &&
+        Math.abs(y - avoidCenterY) < height * 0.22;
 
-    function createEvent(time) {
-      eventNumber++;
-
-      const energetic = eventNumber === 1 || eventNumber % 10 === 0;
-      const pos = pickEventPosition();
-
-      const cloudCount = energetic ? 70 : 38;
-      const trackCount = energetic
-        ? 12 + Math.floor(Math.random() * 7)
-        : 4 + Math.floor(Math.random() * 5);
-
-      const cloudRadius = energetic ? 135 : 90;
-      const intensity = energetic ? 1.15 : 0.65;
-
-      const cloud = [];
-      const tracks = [];
-
-      for (let i = 0; i < cloudCount; i++) {
-        const a = Math.random() * Math.PI * 2;
-        const r = Math.sqrt(Math.random()) * cloudRadius;
-
-        cloud.push({
-          x: pos.x + Math.cos(a) * r,
-          y: pos.y + Math.sin(a) * r,
-          baseX: pos.x + Math.cos(a) * r,
-          baseY: pos.y + Math.sin(a) * r,
-          size: energetic ? 1.4 + Math.random() * 2.3 : 1.0 + Math.random() * 1.8,
-          phase: Math.random() * Math.PI * 2,
-          speed: 0.0015 + Math.random() * 0.0025,
-          color: pickColor()
-        });
+      if (nearCard) {
+        x = Math.random() < 0.5 ? width * 0.18 : width * 0.82;
+        y = height * (0.25 + Math.random() * 0.55);
       }
 
-      for (let i = 0; i < trackCount; i++) {
-        const a = (i / trackCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.65;
-        const length = energetic ? 180 + Math.random() * 220 : 90 + Math.random() * 150;
+      const branches = 2 + Math.floor(Math.random() * 4);
 
-        tracks.push({
-          angle: a,
+      quarks.push({
+        x,
+        y,
+        r: 4 + Math.random() * 3,
+        age: 0,
+        life: 260 + Math.random() * 130,
+        color: randomColor(),
+        driftX: (Math.random() - 0.5) * 0.15,
+        driftY: (Math.random() - 0.5) * 0.15
+      });
+
+      for (let i = 0; i < branches; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const length = 90 + Math.random() * 190;
+
+        fluctuations.push({
+          x,
+          y,
+          angle,
           length,
-          color: pickColor(),
+          age: 0,
+          life: 240 + Math.random() * 140,
+          color: randomColor(),
           phase: Math.random() * Math.PI * 2,
-          amp: energetic ? 8 + Math.random() * 8 : 5 + Math.random() * 6,
-          freq: 0.16 + Math.random() * 0.14,
-          width: energetic ? 1.7 + Math.random() * 1.1 : 1.1 + Math.random() * 0.8
+          amplitude: 6 + Math.random() * 6,
+          frequency: 0.18 + Math.random() * 0.12,
+          driftX: (Math.random() - 0.5) * 0.18,
+          driftY: (Math.random() - 0.5) * 0.18,
+          lineWidth: 1.4 + Math.random() * 0.8
         });
       }
-
-      currentEvent = {
-        start: time,
-        energetic,
-        x: pos.x,
-        y: pos.y,
-        cloud,
-        tracks,
-        intensity
-      };
     }
 
-    function easeInOut(t) {
-      return t < 0.5
-        ? 2 * t * t
-        : 1 - Math.pow(-2 * t + 2, 2) / 2;
+   function drawCollisionVertex(vertex, now, index) {
+
+  const cycleDuration = 5000;
+  const elapsed = now - vertex.startTime;
+
+  if (elapsed > cycleDuration) {
+
+    let x, y;
+    let valid = false;
+
+    while (!valid) {
+      x = width * (0.10 + Math.random() * 0.80);
+      y = height * (0.15 + Math.random() * 0.70);
+
+      const awayFromCard =
+        !(Math.abs(x - width * 0.5) < width * 0.28 &&
+          Math.abs(y - height * 0.52) < height * 0.22);
+
+      valid = awayFromCard;
     }
 
-    function drawBackground() {
-      const gradient = ctx.createLinearGradient(0, 0, W, H);
-      gradient.addColorStop(0, "#f8fbff");
-      gradient.addColorStop(0.55, "#f4f6fa");
-      gradient.addColorStop(1, "#eef5ff");
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, W, H);
+    vertex.x = x;
+    vertex.y = y;
+    vertex.startTime = now;
+  }
 
-      for (let i = 0; i < 42; i++) {
-        const x = (Math.sin(i * 13.7) * 0.5 + 0.5) * W;
-        const y = (Math.cos(i * 9.3) * 0.5 + 0.5) * H;
+  const cycle =
+    ((now - vertex.startTime) % cycleDuration) /
+    cycleDuration;
+
+  const fadeIn = Math.min(cycle / 0.15, 1);
+  const fadeOut =
+    cycle > 0.80
+      ? Math.max(1 - (cycle - 0.80) / 0.20, 0)
+      : 1;
+
+  const opacity = fadeIn * fadeOut;
+
+  ctx.beginPath();
+  ctx.arc(
+    vertex.x,
+    vertex.y,
+    5 + 6 * Math.sin(cycle * Math.PI),
+    0,
+    Math.PI * 2
+  );
+  ctx.fillStyle =
+    "rgba(0,127,143," + (0.35 * opacity) + ")";
+  ctx.fill();
+
+  vertex.particles.forEach(p => {
+
+    const distance = p.energy * cycle;
+
+    const wiggle =
+      Math.sin(cycle * Math.PI * 8 + p.phase) * 7;
+
+    const x1 =
+      vertex.x + Math.cos(p.angle) * 6;
+
+    const y1 =
+      vertex.y + Math.sin(p.angle) * 6;
+
+    const x2 =
+      vertex.x +
+      Math.cos(p.angle) * distance +
+      Math.cos(p.angle + Math.PI / 2) * wiggle;
+
+    const y2 =
+      vertex.y +
+      Math.sin(p.angle) * distance +
+      Math.sin(p.angle + Math.PI / 2) * wiggle;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+
+    ctx.strokeStyle =
+      p.color + (0.22 * opacity) + ")";
+
+    ctx.lineWidth = p.width;
+    ctx.lineCap = "round";
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(x2, y2, 2.2, 0, Math.PI * 2);
+
+    ctx.fillStyle =
+      p.color + (0.30 * opacity) + ")";
+
+    ctx.fill();
+  });
+}
+
+    function drawCollisionVertex(vertex, now) {
+      const cycleDuration = 5000;
+      const cycle = ((now - vertex.startTime) % cycleDuration) / cycleDuration;
+
+      const fadeIn = Math.min(cycle / 0.15, 1);
+      const fadeOut = cycle > 0.78 ? Math.max(1 - (cycle - 0.78) / 0.22, 0) : 1;
+      const opacity = fadeIn * fadeOut;
+
+      ctx.beginPath();
+      ctx.arc(vertex.x, vertex.y, 5.5 + 5 * Math.sin(cycle * Math.PI), 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(0, 127, 143, " + 0.30 * opacity + ")";
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(vertex.x, vertex.y, 18 + 20 * cycle, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgba(0, 127, 143, " + 0.10 * opacity + ")";
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+
+      vertex.particles.forEach(p => {
+        const distance = p.energy * cycle;
+        const wiggle = Math.sin(cycle * Math.PI * 8 + p.phase) * 8;
+
+        const x1 = vertex.x + Math.cos(p.angle) * 10;
+        const y1 = vertex.y + Math.sin(p.angle) * 10;
+
+        const x2 =
+          vertex.x +
+          Math.cos(p.angle) * distance +
+          Math.cos(p.angle + Math.PI / 2) * wiggle;
+
+        const y2 =
+          vertex.y +
+          Math.sin(p.angle) * distance +
+          Math.sin(p.angle + Math.PI / 2) * wiggle;
 
         ctx.beginPath();
-        ctx.arc(x, y, 1.1, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(6, 41, 61, 0.045)";
-        ctx.fill();
-      }
-    }
-
-    function drawCloud(event, elapsed) {
-      const form = Math.min(elapsed / 1500, 1);
-      const fade = elapsed > 4200 ? Math.max(1 - (elapsed - 4200) / 800, 0) : 1;
-      const opacity = form * fade;
-
-      event.cloud.forEach(p => {
-        const pulse = 0.65 + 0.35 * Math.sin(elapsed * p.speed * 3 + p.phase);
-        const dx = Math.sin(elapsed * 0.0018 + p.phase) * 8;
-        const dy = Math.cos(elapsed * 0.0016 + p.phase) * 8;
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = p.color + 0.18 * opacity + ")";
+        ctx.lineWidth = p.width;
+        ctx.lineCap = "round";
+        ctx.stroke();
 
         ctx.beginPath();
-        ctx.arc(p.baseX + dx, p.baseY + dy, p.size * pulse, 0, Math.PI * 2);
-        ctx.fillStyle = p.color + (0.16 * event.intensity * opacity) + ")";
+        ctx.arc(x2, y2, 2.1, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + 0.28 * opacity + ")";
         ctx.fill();
       });
     }
 
-    function drawVertex(event, elapsed) {
-      if (elapsed < 1400) return;
+    function drawCurlyGluon(g) {
+      const fadeIn = Math.min(g.age / 45, 1);
+      const fadeOut = Math.max(1 - g.age / g.life, 0);
+      const opacity = fadeIn * fadeOut;
 
-      const t = Math.min((elapsed - 1400) / 600, 1);
-      const fade = elapsed > 3500 ? Math.max(1 - (elapsed - 3500) / 1200, 0) : 1;
-      const pulse = 0.7 + 0.3 * Math.sin(elapsed * 0.018);
-      const opacity = t * fade * pulse;
-
-      const glow = event.energetic ? 34 : 22;
-
-      const grad = ctx.createRadialGradient(
-        event.x, event.y, 0,
-        event.x, event.y, glow
-      );
-
-      grad.addColorStop(0, "rgba(0, 127, 143, " + 0.34 * event.intensity * opacity + ")");
-      grad.addColorStop(0.45, "rgba(0, 95, 180, " + 0.13 * event.intensity * opacity + ")");
-      grad.addColorStop(1, "rgba(0, 127, 143, 0)");
-
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      ctx.arc(event.x, event.y, glow, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.beginPath();
-      ctx.arc(event.x, event.y, event.energetic ? 5.8 : 4.2, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(0, 127, 143, " + 0.42 * opacity + ")";
-      ctx.fill();
-    }
-
-    function drawCurlyTrack(event, track, elapsed) {
-      if (elapsed < 1900) return;
-
-      const grow = Math.min((elapsed - 1900) / 1700, 1);
-      const fade = elapsed > 3900 ? Math.max(1 - (elapsed - 3900) / 1100, 0) : 1;
-      const opacity = grow * fade;
-
-      const steps = 90;
-      const currentLength = track.length * easeInOut(grow);
+      const steps = 130;
 
       ctx.beginPath();
 
       for (let i = 0; i <= steps; i++) {
         const t = i / steps;
-        const dist = t * currentLength;
+        const dist = t * g.length;
 
         const curl =
-          Math.sin(t * track.length * track.freq + track.phase + elapsed * 0.006) *
-          track.amp;
+          Math.sin(t * g.length * g.frequency + g.phase + g.age * 0.045) *
+          g.amplitude;
 
         const px =
-          event.x +
-          Math.cos(track.angle) * dist +
-          Math.cos(track.angle + Math.PI / 2) * curl;
+          g.x +
+          Math.cos(g.angle) * dist +
+          Math.cos(g.angle + Math.PI / 2) * curl;
 
         const py =
-          event.y +
-          Math.sin(track.angle) * dist +
-          Math.sin(track.angle + Math.PI / 2) * curl;
+          g.y +
+          Math.sin(g.angle) * dist +
+          Math.sin(g.angle + Math.PI / 2) * curl;
 
         if (i === 0) ctx.moveTo(px, py);
         else ctx.lineTo(px, py);
       }
 
-      ctx.strokeStyle = track.color + (0.25 * event.intensity * opacity) + ")";
-      ctx.lineWidth = track.width;
+      ctx.strokeStyle = g.color + 0.22 * opacity + ")";
+      ctx.lineWidth = g.lineWidth;
       ctx.lineCap = "round";
       ctx.stroke();
 
-      const endX = event.x + Math.cos(track.angle) * currentLength;
-      const endY = event.y + Math.sin(track.angle) * currentLength;
+      const endX = g.x + Math.cos(g.angle) * g.length;
+      const endY = g.y + Math.sin(g.angle) * g.length;
 
       ctx.beginPath();
-      ctx.arc(endX, endY, event.energetic ? 3.1 : 2.3, 0, Math.PI * 2);
-      ctx.fillStyle = track.color + (0.32 * event.intensity * opacity) + ")";
+      ctx.arc(endX, endY, 3.2, 0, Math.PI * 2);
+      ctx.fillStyle = g.color + 0.34 * opacity + ")";
       ctx.fill();
+
+      g.x += g.driftX;
+      g.y += g.driftY;
+      g.age++;
     }
 
-    function drawAnalysisMotif(event, elapsed) {
-      if (elapsed < 3300) return;
-
-      const t = Math.min((elapsed - 3300) / 900, 1);
-      const fade = elapsed > 4550 ? Math.max(1 - (elapsed - 4550) / 450, 0) : 1;
-      const opacity = t * fade * 0.18;
-
-      const baseX = event.x + (event.x < W / 2 ? 70 : -170);
-      const baseY = event.y + 80;
-
-      ctx.strokeStyle = "rgba(6, 41, 61, " + opacity + ")";
-      ctx.lineWidth = 1;
+    function drawQuark(q) {
+      const fadeIn = Math.min(q.age / 45, 1);
+      const fadeOut = Math.max(1 - q.age / q.life, 0);
+      const opacity = fadeIn * fadeOut;
 
       ctx.beginPath();
-      ctx.moveTo(baseX, baseY);
-      ctx.lineTo(baseX + 115, baseY);
-      ctx.moveTo(baseX, baseY);
-      ctx.lineTo(baseX, baseY - 70);
+      ctx.arc(q.x, q.y, q.r, 0, Math.PI * 2);
+      ctx.fillStyle = q.color + 0.38 * opacity + ")";
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(q.x, q.y, q.r * 2.4, 0, Math.PI * 2);
+      ctx.strokeStyle = q.color + 0.10 * opacity + ")";
+      ctx.lineWidth = 1.1;
       ctx.stroke();
 
-      ctx.beginPath();
-      for (let i = 0; i < 6; i++) {
-        const x = baseX + 15 + i * 17;
-        const y = baseY - 15 - Math.log(i + 1) * 20 + Math.sin(i) * 5;
+      q.x += q.driftX;
+      q.y += q.driftY;
+      q.age++;
+    }
 
+    function drawSoftBackground() {
+      const gradient = ctx.createLinearGradient(0, 0, width, height);
+      gradient.addColorStop(0, "rgba(232, 252, 255, 0.75)");
+      gradient.addColorStop(0.45, "rgba(247, 251, 255, 1)");
+      gradient.addColorStop(1, "rgba(236, 255, 248, 0.85)");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      for (let i = 0; i < 55; i++) {
+        const x = (Math.sin(i * 17.13) * 0.5 + 0.5) * width;
+        const y = (Math.cos(i * 11.71) * 0.5 + 0.5) * height;
         ctx.beginPath();
-        ctx.arc(x, y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0, 127, 143, " + opacity * 1.6 + ")";
+        ctx.arc(x, y, 1.1, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0, 127, 143, 0.10)";
         ctx.fill();
-
-        if (i === 0) {
-          ctx.beginPath();
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
       }
-
-      ctx.strokeStyle = "rgba(95, 75, 190, " + opacity * 1.4 + ")";
-      ctx.stroke();
     }
 
-    function animate(time) {
-      drawBackground();
+    function animate(now) {
+      ctx.clearRect(0, 0, width, height);
+      drawSoftBackground();
 
-      if (!currentEvent || time - lastEventStart >= EVENT_TOTAL) {
-        createEvent(time);
-        lastEventStart = time;
+      collisionVertices.forEach(vertex => drawCollisionVertex(vertex, now));
+
+      if (Math.random() < 0.035 && fluctuations.length < 95) {
+        createFluctuation();
       }
 
-      const elapsed = time - currentEvent.start;
+      fluctuations.forEach(drawCurlyGluon);
+      quarks.forEach(drawQuark);
 
-      if (elapsed <= EVENT_DURATION) {
-        drawCloud(currentEvent, elapsed);
-        drawVertex(currentEvent, elapsed);
-
-        currentEvent.tracks.forEach(track => {
-          drawCurlyTrack(currentEvent, track, elapsed);
-        });
-
-        drawAnalysisMotif(currentEvent, elapsed);
-      }
+      fluctuations = fluctuations.filter(g => g.age < g.life);
+      quarks = quarks.filter(q => q.age < q.life);
 
       requestAnimationFrame(animate);
     }
