@@ -177,9 +177,7 @@
       height: 280vh;
       padding: 0;
       position: relative;
-      background:
-        radial-gradient(circle at 50% 45%, rgba(0, 143, 140, 0.22), transparent 34%),
-        linear-gradient(180deg, #06111a 0%, #020509 54%, #06111a 100%);
+      background: #f7fbff;
       overflow: clip;
     }
 
@@ -194,18 +192,34 @@
       isolation: isolate;
     }
 
+    .scroll-zoom-video-fill {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(34px) brightness(0.48) saturate(1.15);
+      transform: scale(1.12);
+      transform-origin: center center;
+      opacity: 0.92;
+      z-index: 0;
+      pointer-events: none;
+    }
+
     .scroll-zoom-video {
-      width: min(72vw, 980px);
-      max-height: 58vh;
+      width: min(92vw, 1280px);
+      max-height: 82vh;
       aspect-ratio: 16 / 9;
       object-fit: cover;
       border-radius: 34px;
-      box-shadow: 0 36px 100px rgba(0, 0, 0, 0.48);
-      transform: scale(1);
+      box-shadow: 0 36px 100px rgba(4, 42, 56, 0.24);
+      transform: scale(0.72);
       transform-origin: center center;
       will-change: transform, border-radius;
       display: block;
-      background: #000;
+      background: #071117;
+      position: relative;
+      z-index: 1;
     }
 
     .tag {
@@ -392,8 +406,8 @@
       }
 
       .scroll-zoom-video {
-        width: 74vw;
-        max-height: 52vh;
+        width: 92vw;
+        max-height: 72vh;
         border-radius: 24px;
       }
 
@@ -425,6 +439,10 @@
         transform: none;
         border-radius: 18px;
         will-change: auto;
+      }
+
+      .scroll-zoom-video-fill {
+        display: none;
       }
     }
   </style>
@@ -497,6 +515,9 @@
 
   <section class="video-zoom-section">
     <div class="video-zoom-sticky">
+      <video class="scroll-zoom-video-fill" autoplay muted loop playsinline aria-hidden="true">
+        <source src="images/EICvideo.mp4" type="video/mp4">
+      </video>
       <video class="scroll-zoom-video" autoplay muted loop playsinline>
         <source src="images/EICvideo.mp4" type="video/mp4">
       </video>
@@ -704,6 +725,7 @@
 
     const videoZoomSection = document.querySelector('.video-zoom-section');
     const scrollZoomVideo = document.querySelector('.scroll-zoom-video');
+    const scrollZoomVideoFill = document.querySelector('.scroll-zoom-video-fill');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     function clamp(value, min, max) {
@@ -717,7 +739,7 @@
         const rect = videoZoomSection.getBoundingClientRect();
         const scrollableDistance = videoZoomSection.offsetHeight - window.innerHeight;
         const progress = clamp(-rect.top / scrollableDistance, 0, 1);
-        const scale = 1 + progress * 2;
+        const scale = 0.72 + progress * 0.28;
         const radius = 34 - progress * 26;
 
         scrollZoomVideo.style.transform = "scale(" + scale.toFixed(3) + ")";
@@ -735,6 +757,15 @@
       window.addEventListener('scroll', requestVideoZoomUpdate, { passive: true });
       window.addEventListener('resize', requestVideoZoomUpdate);
       updateVideoZoom();
+    }
+
+    if (scrollZoomVideo && scrollZoomVideoFill) {
+      scrollZoomVideo.addEventListener('play', () => {
+        if (Math.abs(scrollZoomVideoFill.currentTime - scrollZoomVideo.currentTime) > 0.2) {
+          scrollZoomVideoFill.currentTime = scrollZoomVideo.currentTime;
+        }
+        scrollZoomVideoFill.play().catch(() => {});
+      });
     }
   </script>
 
