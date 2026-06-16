@@ -224,8 +224,7 @@
       text-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
       pointer-events: none;
       white-space: nowrap;
-      opacity: 0;
-      transition: opacity 0.18s linear;
+      opacity: 1;
     }
 
     .tag {
@@ -751,14 +750,13 @@
         const rect = videoZoomSection.getBoundingClientRect();
         const scrollableDistance = videoZoomSection.offsetHeight - window.innerHeight;
         const progress = clamp(-rect.top / scrollableDistance, 0, 1);
-        const scale = 1 - progress * 0.28;
+        const scale = 1 - progress * 0.2;
         const radius = 34 - progress * 26;
-        const captionOpacity = clamp((progress - 0.7) / 0.3, 0, 1);
 
         scrollZoomVideo.style.transform = "scale(" + scale.toFixed(3) + ")";
         scrollZoomVideo.style.borderRadius = radius.toFixed(1) + "px";
         if (videoZoomCaption) {
-          videoZoomCaption.style.opacity = captionOpacity.toFixed(3);
+          videoZoomCaption.style.opacity = scale > 0.94 ? "1" : "0";
         }
         ticking = false;
       }
