@@ -177,7 +177,7 @@
       height: 280vh;
       padding: 0;
       position: relative;
-      background: #f7fbff;
+      background: #fff;
       overflow: clip;
     }
 
@@ -190,20 +190,6 @@
       justify-content: center;
       overflow: hidden;
       isolation: isolate;
-    }
-
-    .scroll-zoom-video-fill {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(34px) brightness(0.48) saturate(1.15);
-      transform: scale(1.12);
-      transform-origin: center center;
-      opacity: 0.92;
-      z-index: 0;
-      pointer-events: none;
     }
 
     .scroll-zoom-video {
@@ -220,6 +206,24 @@
       background: #071117;
       position: relative;
       z-index: 1;
+    }
+
+    .video-zoom-caption {
+      position: absolute;
+      left: 50%;
+      bottom: 13vh;
+      z-index: 2;
+      transform: translateX(-50%);
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(28px, 4vw, 64px);
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.05;
+      text-align: center;
+      text-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
+      pointer-events: none;
+      white-space: nowrap;
     }
 
     .tag {
@@ -411,6 +415,13 @@
         border-radius: 24px;
       }
 
+      .video-zoom-caption {
+        bottom: 18vh;
+        width: min(88vw, 420px);
+        font-size: clamp(26px, 8vw, 42px);
+        white-space: normal;
+      }
+
       .photo-card img {
         height: 220px;
       }
@@ -441,9 +452,10 @@
         will-change: auto;
       }
 
-      .scroll-zoom-video-fill {
-        display: none;
+      .video-zoom-caption {
+        bottom: 12%;
       }
+
     }
   </style>
 </head>
@@ -515,12 +527,10 @@
 
   <section class="video-zoom-section">
     <div class="video-zoom-sticky">
-      <video class="scroll-zoom-video-fill" autoplay muted loop playsinline aria-hidden="true">
-        <source src="images/EICvideo.mp4" type="video/mp4">
-      </video>
       <video class="scroll-zoom-video" autoplay muted loop playsinline>
         <source src="images/EICvideo.mp4" type="video/mp4">
       </video>
+      <div class="video-zoom-caption">Electron-Ion Collision</div>
     </div>
   </section>
 
@@ -725,7 +735,6 @@
 
     const videoZoomSection = document.querySelector('.video-zoom-section');
     const scrollZoomVideo = document.querySelector('.scroll-zoom-video');
-    const scrollZoomVideoFill = document.querySelector('.scroll-zoom-video-fill');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     function clamp(value, min, max) {
@@ -759,14 +768,6 @@
       updateVideoZoom();
     }
 
-    if (scrollZoomVideo && scrollZoomVideoFill) {
-      scrollZoomVideo.addEventListener('play', () => {
-        if (Math.abs(scrollZoomVideoFill.currentTime - scrollZoomVideo.currentTime) > 0.2) {
-          scrollZoomVideoFill.currentTime = scrollZoomVideo.currentTime;
-        }
-        scrollZoomVideoFill.play().catch(() => {});
-      });
-    }
   </script>
 
 </body>
