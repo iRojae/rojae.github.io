@@ -40,57 +40,104 @@
     }
 
     nav a {
+      position: relative;
       margin-left: 22px;
       color: #102033;
       text-decoration: none;
       font-weight: 600;
       font-size: 14px;
+      transition: color 0.2s;
     }
 
     nav a:hover {
       color: #008f8c;
     }
 
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 0;
+      height: 3px;
+      border-radius: 999px;
+      background: #008f8c;
+      transform: translateX(-50%);
+      transition: width 0.25s ease;
+    }
+
+    nav a.active {
+      color: #007f8f;
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
     #hero {
       position: relative;
-      min-height: 76vh;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
+      align-items: center;ç
       justify-content: center;
-      text-align: center;
-      padding: 105px 20px 35px;
+      padding: 105px 8% 55px;
       overflow: hidden;
-      background: transparent;
+      background:
+        linear-gradient(90deg, rgba(3, 24, 37, 0.92) 0%, rgba(3, 35, 50, 0.74) 52%, rgba(3, 24, 37, 0.42) 100%),
+        url("images/stony.png") center / cover no-repeat;
     }
 
     .hero-card {
       position: relative;
       z-index: 1;
-      max-width: 880px;
-      padding: 55px 20px;
+      width: min(1180px, 100%);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+      gap: clamp(36px, 6vw, 80px);
+      align-items: center;
       background: transparent;
       border: 0;
       border-radius: 0;
       box-shadow: none;
     }
 
+    .hero-content {
+      max-width: 760px;
+    }
+
     .hero-card h1 {
       font-size: 58px;
-      color: #06293d;
+      color: white;
       margin-bottom: 12px;
+      line-height: 1.1;
     }
 
     .hero-card h3 {
       font-size: 23px;
-      color: #006f7f;
+      color: #8ef3ef;
       margin-bottom: 22px;
     }
 
     .hero-card p {
       font-size: 18px;
-      color: #17384d;
+      color: rgba(255, 255, 255, 0.9);
       max-width: 750px;
-      margin: auto;
+    }
+
+    .hero-portrait {
+      width: min(100%, 374px);
+      aspect-ratio: 4 / 5;
+      justify-self: center;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 28px;
+      border: 2px solid rgba(255, 255, 255, 0.82);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
     }
 
     .buttons {
@@ -427,11 +474,23 @@
       }
 
       .hero-card {
-        padding: 35px 24px;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 35px 10px;
+        text-align: center;
       }
 
       .hero-card h1 {
         font-size: 42px;
+      }
+
+      .hero-card p {
+        margin: auto;
+      }
+
+      .hero-portrait {
+        width: min(79.2vw, 330px);
+        grid-row: 1;
       }
 
       .slide {
@@ -509,28 +568,27 @@
 
   <header id="hero">
     <div class="hero-card">
-      <h1>Rojae Mighty</h1>
-      <h3>Physics Undergraduate Researcher | Stony Brook University</h3>
-      <p>
-        I study nuclear physics, gluon saturation, geometric scaling, and computational methods
-        for high-energy collisions. My work combines physics, numerical analysis, C++/ROOT,
-        and data-driven modeling.
-      </p>
+      <div class="hero-content">
+        <h1>Rojae Mighty</h1>
+        <h3>Physics Undergraduate Researcher | Stony Brook University</h3>
+        <p>
+          I study nuclear physics, gluon saturation, geometric scaling, and computational methods
+          for high-energy collisions. My work combines physics, numerical analysis, C++/ROOT,
+          and data-driven modeling.
+        </p>
 
-      <div class="buttons">
-        <a class="btn" href="#research">View Research</a>
-        <a class="btn secondary" href="#awards">Awards</a>
-        <a class="btn secondary" href="Rojae_Mighty_CV.pdf" target="_blank">Download CV</a>
+        <div class="buttons">
+          <a class="btn" href="#research">View Research</a>
+          <a class="btn secondary" href="#awards">Awards</a>
+          <a class="btn secondary" href="Rojae_Mighty_CV.pdf" target="_blank">Download CV</a>
+        </div>
       </div>
+      <img class="hero-portrait" src="images/rojae.png" alt="Portrait of Rojae Mighty">
     </div>
   </header>
 
   <section id="about">
     <h2 class="section-title">About</h2>
-    <p class="section-subtitle">
-      I am a physics student at Stony Brook University interested in nuclear physics,
-      the Electron-Ion Collider, computational physics, and quantitative research.
-    </p>
 
     <div class="grid">
       <div class="card">
@@ -696,7 +754,7 @@
 
       <div class="photo-card">
         <img src="images/hbar.jpeg" alt="Celebrating Undergraduate Research Day with Kong and Abhay Deshpande">
-        <div class="caption">Celebrating Undergraduate Research Day with Kong Tu and Abhay Deshpande</div>
+        <div class="caption">Celebrating Undergraduate Research Day with Kong and Abhay Deshpande</div>
       </div>
 
       <div class="photo-card">
@@ -758,6 +816,40 @@
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const closeButton = document.querySelector('.close');
+    const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+    const navSections = navLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    function setActiveNavLink(sectionId) {
+      navLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === "#" + sectionId;
+        link.classList.toggle('active', isActive);
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    if (navSections.length) {
+      const sectionObserver = new IntersectionObserver(entries => {
+        const visibleSections = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleSections.length) {
+          setActiveNavLink(visibleSections[0].target.id);
+        }
+      }, {
+        rootMargin: '-20% 0px -55% 0px',
+        threshold: [0, 0.1, 0.25, 0.5]
+      });
+
+      navSections.forEach(section => sectionObserver.observe(section));
+    }
 
     cards.forEach(card => {
       card.addEventListener('click', () => {
