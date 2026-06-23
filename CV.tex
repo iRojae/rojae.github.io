@@ -1,0 +1,119 @@
+% CV — grad school + quant (compile: pdflatex CV.tex)
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{tabularx}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\large\bfseries}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+
+\newcommand{\header}[1]{{\LARGE\bfseries #1}}
+\newcommand{\lineitem}[2]{%
+  \textbf{#1} \hfill \textit{#2}\\[-2pt]
+}
+\newcommand{\subheader}[1]{\textit{#1}\\[2pt]}
+\newcommand{\cvitem}[1]{\item #1}
+
+\begin{document}
+
+% --- Header ---
+\header{Rojae Mighty}\\[4pt]
+Stony Brook, NY \quad$\cdot$\quad
+\href{mailto:rojae.mighty@stonybrook.edu}{rojae.mighty@stonybrook.edu} \quad$\cdot$\quad
+\href{https://rojaemighty.com}{rojaemighty.com}\\[2pt]
+\href{https://www.linkedin.com/in/rojaemight/}{linkedin.com/in/rojaemight} \quad$\cdot$\quad
+\href{https://github.com/iRojae}{github.com/iRojae}
+
+\vspace{6pt}
+\textbf{Research interests:}
+High-energy nuclear physics, QCD and gluon saturation at the Electron-Ion Collider, computational data analysis, and machine learning for physical and financial time-series systems.
+
+% --- Education ---
+\section{Education}
+\lineitem{Stony Brook University}{Expected May 2027}
+B.S.\ in Physics\\
+Relevant coursework: quantum mechanics, electrodynamics, statistical mechanics, computational methods, data analysis
+
+% --- Research ---
+\section{Research Experience}
+
+\lineitem{Brookhaven National Laboratory}{2025--Present}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \cvitem{\textbf{Mini-Semester Program} (2025) --- intensive introduction to nuclear science at BNL; first research exposure with STAR/EIC physics.}
+  \cvitem{\textbf{DOE Science Undergraduate Laboratory Internship (SULI)} (Summers 2025, 2026) --- introduced to a national-laboratory research environment; first training in \textbf{ROOT} and the principles of nuclear physics in exclusive vector meson production.}
+\end{itemize}
+
+\lineitem{Center for Frontiers in Nuclear Science (CFNS)}{2025--Present}
+\subheader{Undergraduate Researcher --- Nuclear \& High-Energy Physics}
+\subheader{Advisor: Zhoudunming (Kong) Tu}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \cvitem{Study gluon saturation and geometric scaling for the Electron-Ion Collider (EIC), including a spatially dependent nuclear parton distribution function to probe centrality in QCD dynamics at small $x$.}
+  \cvitem{Develop machine-learning methods for Deep Inelastic Scattering kinematic reconstruction (extracting $x$ and $Q^2$) for inclusive and extended scattering channels.}
+  \cvitem{Build analysis workflows in \textbf{C++}, \textbf{ROOT}, and \textbf{Python}; run numerical simulations and Monte Carlo-based studies on high-energy collision data.}
+\end{itemize}
+
+% --- Awards ---
+\section{Honors \& Awards}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \cvitem{Barry Barish Undergraduate Research Travel Award, Stony Brook University (2026)}
+  \cvitem{Edward Guiliano Global Fellowship --- \textit{Myth and Matter: Exploring Early Explanations of Nature}, Greece (2026)}
+  \cvitem{1st Place, Physical Sciences Presentation, Yale Undergraduate Research Conference (2026)}
+  \cvitem{Outstanding Oral Presentation Award, National Society of Black Physicists Conference (2025)}
+\end{itemize}
+
+\section{Presentations \& Conferences}
+\textit{Geometric Scaling and Gluon Saturation at the EIC}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \cvitem{Deep Inelastic Scattering Conference (DIS 2026), Bologna, Italy --- oral presentation}
+  \cvitem{Yale Undergraduate Research Conference (2026) --- poster presentation}
+  \cvitem{National Society of Black Physicists Annual Conference (2025) --- oral presentation}
+  \cvitem{APS DNP Meeting (2025, CEU) --- poster presentation}
+  \cvitem{APS Global Physics Summit (2026) --- oral presentation}
+  \cvitem{Stony Brook Physics Colloquium (2026) --- invited oral presentation}
+\end{itemize}
+
+\section{Projects}
+
+\lineitem{Market Microstructure Forecasting (\href{https://github.com/iRojae/market-microstructure-forecasting}{GitHub})}{2025--Present}
+\subheader{Independent --- Early-stage quantitative ML project}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \cvitem{Building a Python ML pipeline on limit order book data to forecast short-horizon mid-price returns and volatility.}
+  \cvitem{Engineering microstructure features (order-flow imbalance, spread dynamics); implementing walk-forward validation and transaction-cost-aware backtesting.}
+\end{itemize}
+
+% --- Leadership (condensed: well-rounded without crowding research) ---
+\section{Leadership \& Service}
+
+\lineitem{Dean's Student Leadership \& Advisory Council (DSLAC), College of Arts \& Sciences}{2024--Present}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \cvitem{Represent undergraduates to the CAS Dean on policy and campus services; CAS Ambassador at admissions events and Godfrey Excellence in Teaching Awards.}
+\end{itemize}
+
+\lineitem{Collegiate Science and Technology Entry Program (CSTEP), Stony Brook University}{2024--Present}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \cvitem{Peer mentor for underrepresented STEM undergraduates on research pathways, academic planning, and professional development.}
+\end{itemize}
+
+\lineitem{Socially Just Seawolves (SJS) Living-Learning Community}{2023--Present}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \cvitem{Lead food-insecurity awareness programming with campus support services; service-learning and community agriculture volunteering.}
+\end{itemize}
+
+% --- Skills ---
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}l X@{}}
+Programming: & Python, C++, Unix/Linux shell scripting \\
+Research tools: & ROOT, LaTeX, Git, Monte Carlo event generators, numerical simulation \\
+Methods: & Machine learning (scikit-learn), statistical data analysis, walk-forward validation, feature engineering \\
+Languages: & English (native), French (elementary)
+\end{tabularx}
+
+\end{document}
