@@ -4,9 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rojae Mighty</title>
+  <meta name="description" content="Rojae Mighty — Physics undergraduate researcher at Stony Brook University studying nuclear physics, gluon saturation, and computational methods for high-energy collisions." />
+  <meta name="theme-color" content="#06293d" />
+  <link rel="canonical" href="https://rojaemighty.com/" />
+  <meta property="og:title" content="Rojae Mighty" />
+  <meta property="og:description" content="Physics Undergraduate Researcher | Stony Brook University. Nuclear physics, gluon saturation, and computational methods for high-energy collisions." />
+  <meta property="og:image" content="https://rojaemighty.com/images/rojae.png" />
+  <meta property="og:url" content="https://rojaemighty.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rojae Mighty" />
+  <meta name="twitter:description" content="Physics Undergraduate Researcher | Stony Brook University" />
+  <meta name="twitter:image" content="https://rojaemighty.com/images/rojae.png" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
 
   <style>
+    @font-face {
+      font-family: "Produkt";
+      src: url("fonts/Produkt-Extralight.woff2") format("woff2");
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Produkt";
+      src: url("fonts/Produkt-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -15,7 +43,8 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Produkt", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
       background: #f7fbff;
       color: #102033;
       line-height: 1.6;
@@ -38,6 +67,49 @@
     nav h2 {
       color: #0b3d5c;
       font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-toggle-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: #0b3d5c;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    nav.is-open .nav-toggle-bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    nav.is-open .nav-toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    nav.is-open .nav-toggle-bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     nav a {
@@ -45,7 +117,6 @@
       margin-left: 22px;
       color: #102033;
       text-decoration: none;
-      font-weight: 600;
       font-size: 14px;
       transition: color 0.2s;
     }
@@ -113,6 +184,8 @@
 
     .hero-card h1 {
       font-size: 58px;
+      font-weight: 200;
+      letter-spacing: 0.01em;
       color: white;
       margin-bottom: 12px;
       line-height: 1.1;
@@ -120,6 +193,7 @@
 
     .hero-card h3 {
       font-size: 23px;
+      font-weight: 400;
       color: #8ef3ef;
       margin-bottom: 22px;
     }
@@ -153,7 +227,6 @@
       background: #007f8f;
       color: white;
       text-decoration: none;
-      font-weight: bold;
       transition: 0.25s;
     }
 
@@ -173,6 +246,8 @@
 
     .section-title {
       font-size: 36px;
+      font-weight: 200;
+      letter-spacing: 0.02em;
       color: #06293d;
       margin-bottom: 20px;
       text-align: center;
@@ -184,6 +259,7 @@
       margin: 0 auto 50px;
       color: #46606f;
       font-size: 17px;
+      font-weight: 400;
     }
 
     .grid {
@@ -277,9 +353,7 @@
       bottom: clamp(10px, 1.8vw, 22px);
       z-index: 3;
       color: rgba(255, 255, 255, 0.72);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
       font-size: clamp(11px, 1.1vw, 14px);
-      font-weight: 600;
       letter-spacing: 0;
       line-height: 1;
       text-decoration: none;
@@ -304,10 +378,9 @@
       z-index: 2;
       transform: translate(-50%, -50%);
       color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
       font-size: clamp(31px, 4.4vw, 70px);
-      font-weight: 700;
-      letter-spacing: 0;
+      font-weight: 200;
+      letter-spacing: 0.01em;
       line-height: 1.05;
       text-align: center;
       text-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
@@ -324,7 +397,21 @@
       background: #e4f7f7;
       color: #006f7f;
       font-size: 13px;
-      font-weight: bold;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: #007f8f;
+      font-size: 14px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 127, 143, 0.35);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .project-link:hover {
+      color: #005f6f;
+      border-color: #005f6f;
     }
 
     .slideshow {
@@ -371,6 +458,10 @@
       color: white;
     }
 
+    .slide-content h3 {
+      margin-bottom: 8px;
+    }
+
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -380,6 +471,12 @@
     .photo-card {
       cursor: pointer;
       transition: 0.25s;
+    }
+
+    .photo-card:focus-visible {
+      outline: 3px solid #007f8f;
+      outline-offset: 4px;
+      border-radius: 20px;
     }
 
     .photo-card:hover {
@@ -396,13 +493,11 @@
 
     .caption {
       margin-top: 10px;
-      font-weight: 700;
       color: #102033;
       text-align: center;
     }
 
     .lightbox {
-      display: none;
       position: fixed;
       z-index: 5000;
       inset: 0;
@@ -411,6 +506,14 @@
       align-items: center;
       flex-direction: column;
       padding: 30px;
+    }
+
+    .lightbox[hidden] {
+      display: none;
+    }
+
+    .lightbox:not([hidden]) {
+      display: flex;
     }
 
     .lightbox-img {
@@ -432,7 +535,17 @@
       right: 40px;
       color: white;
       font-size: 42px;
+      line-height: 1;
+      border: 0;
+      background: transparent;
+      padding: 8px;
       cursor: pointer;
+    }
+
+    .close:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 4px;
+      border-radius: 8px;
     }
 
     footer {
@@ -473,13 +586,43 @@
 
     @media (max-width: 760px) {
       nav {
+        flex-wrap: wrap;
+        padding: 12px 6%;
+        gap: 0;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
         flex-direction: column;
-        gap: 10px;
+        align-items: stretch;
+        width: 100%;
+        margin-top: 14px;
+        padding: 8px 0 4px;
+        border-top: 1px solid rgba(0, 127, 143, 0.14);
+      }
+
+      nav.is-open .nav-links {
+        display: flex;
       }
 
       nav a {
-        margin: 0 8px;
-        font-size: 13px;
+        margin: 0;
+        padding: 14px 4px;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      nav a::after {
+        left: 50%;
+        bottom: 8px;
+      }
+
+      section {
+        scroll-margin-top: 68px;
       }
 
       .hero-card {
@@ -566,7 +709,12 @@
 
   <nav>
     <h2>Rojae Mighty</h2>
-    <div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <div id="nav-links" class="nav-links">
       <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#awards">Awards</a>
@@ -664,19 +812,22 @@
           Developing machine learning model for Deep Inelastic Scattering kinematic reconstruction at the Electron-Ion Collider,
           including extracting x and Q² for inclusive processes and extending these techniques
           to additional scattering channels.
+        </p>
       </div>
 
       <div class="card">
         <h3>Market Microstructure Forecasting</h3>
         <p>
-          Building a time-series forecasting project using limit order book data to predict short-horizon
-          price movement and volatility, with an emphasis on feature engineering, walk-forward validation,
-          and realistic backtesting.
+          Early-stage project: building a Python ML pipeline on limit order book data to forecast
+          short-horizon mid-price returns and volatility. Current focus is microstructure feature
+          design (order-flow imbalance, spread dynamics), with walk-forward validation and
+          transaction-cost-aware backtesting planned next.
         </p>
         <span class="tag">Time Series</span>
         <span class="tag">Machine Learning</span>
         <span class="tag">Python</span>
         <span class="tag">Backtesting</span>
+        <a class="project-link" href="https://github.com/iRojae/market-microstructure-forecasting" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
       </div>
     </div>
   </section>
@@ -777,10 +928,10 @@
     </div>
   </section>
 
-  <div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-img" id="lightbox-img" alt="Expanded gallery image">
-    <div id="lightbox-caption"></div>
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption" hidden>
+    <button type="button" class="close" aria-label="Close image">&times;</button>
+    <img class="lightbox-img" id="lightbox-img" alt="">
+    <p id="lightbox-caption"></p>
   </div>
 
   <section id="contact">
@@ -824,10 +975,74 @@
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const closeButton = document.querySelector('.close');
+    const nav = document.querySelector('nav');
+    const navToggle = document.querySelector('.nav-toggle');
     const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
     const navSections = navLinks
       .map(link => document.querySelector(link.getAttribute('href')))
       .filter(Boolean);
+
+    function closeMobileNav() {
+      if (!nav || !navToggle) return;
+      nav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open menu');
+    }
+
+    if (navToggle && nav) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', closeMobileNav);
+      });
+    }
+
+    let lastFocusedCard = null;
+
+    function trapLightboxFocus(event) {
+      if (!lightbox || lightbox.hidden || event.key !== 'Tab') return;
+      event.preventDefault();
+      closeButton.focus();
+    }
+
+    function openLightbox(card) {
+      const img = card.querySelector('img');
+      const caption = card.querySelector('.caption').textContent;
+
+      lastFocusedCard = card;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || caption;
+      lightboxCaption.textContent = caption;
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      closeButton.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.hidden = true;
+      document.body.style.overflow = '';
+
+      if (lastFocusedCard) {
+        lastFocusedCard.focus();
+        lastFocusedCard = null;
+      }
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        if (lightbox && !lightbox.hidden) {
+          closeLightbox();
+          return;
+        }
+        closeMobileNav();
+      }
+
+      trapLightboxFocus(event);
+    });
 
     function setActiveNavLink(sectionId) {
       navLinks.forEach(link => {
@@ -860,20 +1075,26 @@
     }
 
     cards.forEach(card => {
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+
       card.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = card.querySelector('img').src;
-        lightboxCaption.textContent = card.querySelector('.caption').textContent;
+        openLightbox(card);
+      });
+
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLightbox(card);
+        }
       });
     });
 
-    closeButton.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-    });
+    closeButton.addEventListener('click', closeLightbox);
 
     lightbox.addEventListener('click', e => {
       if (e.target === lightbox) {
-        lightbox.style.display = 'none';
+        closeLightbox();
       }
     });
 
