@@ -1,6 +1,6 @@
 # CV Additions — Quantitative Projects
 
-Add this section to **CVs/master/Rojae_Mighty_CV.tex** / **CVs/master/Rojae_Mighty_CV.pdf** (place after Research Experience or before Skills).
+This content has been folded into **CVs/master/Rojae_Mighty_CV.md** / **CVs/master/Rojae_Mighty_CV.pdf**.
 
 ---
 

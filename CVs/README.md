@@ -1,39 +1,35 @@
 # CVs
 
-One folder per application. Keep the **master CV** as your full academic record; create **tailored CVs** from the template for each role or program.
+One folder per application. Keep the **master CV** as the full academic record; create **tailored CVs** from Markdown for each role or program.
 
 ## Layout
 
 ```
 CVs/
-├── master/                      # Full CV (grad school, conferences, leadership)
-│   ├── Rojae_Mighty_CV.tex
+├── master/                      # Full CV: research, conferences, leadership, service
+│   ├── Rojae_Mighty_CV.md
 │   └── Rojae_Mighty_CV.pdf
-├── google-student-researcher/   # Tailored for Google Student Researcher
-│   ├── Rojae_Mighty_CV.tex
-│   └── Rojae_Mighty_CV.pdf
-└── _template/                   # Starting point for new applications
-    └── Rojae_Mighty_CV.tex
+└── google-student-researcher/   # Tailored CV example
+    ├── Rojae_Mighty_CV.md
+    └── Rojae_Mighty_CV.pdf
 ```
 
-## Add a new tailored CV
+## Markdown to PDF workflow
 
-1. Copy `_template/` to a new folder named `company-role` (e.g. `mit-grad-admissions`).
-2. Edit the `.tex` file — emphasize relevant research, awards, and skills for that audience.
-3. Compile and commit both `.tex` and `.pdf`:
+1. Edit the relevant `Rojae_Mighty_CV.md`.
+2. Render PDFs from the repo root:
 
    ```bash
-   cd CVs/your-new-folder
-   pdflatex Rojae_Mighty_CV.tex
+   make cv-pdf
    ```
 
 ## Which file to use when
 
 | Situation | File |
 |-----------|------|
-| Grad school, fellowships, research programs | `CVs/<company-role>/Rojae_Mighty_CV.pdf` or `CVs/master/Rojae_Mighty_CV.pdf` |
+| Grad school, fellowships, research programs | `CVs/master/Rojae_Mighty_CV.pdf` or a tailored `CVs/<program>/Rojae_Mighty_CV.pdf` |
 | Website download link | `CVs/master/Rojae_Mighty_CV.pdf` |
 
 ## Workflow tip
 
-When you update shared content (new award, publication, project), edit **master** first, then pull the relevant sections into any active tailored CVs.
+When shared content changes, edit **CVs/master/Rojae_Mighty_CV.md** first, render the PDF, then copy the relevant sections into tailored CV Markdown files.
