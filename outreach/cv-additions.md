@@ -24,7 +24,7 @@ backtesting in progress. github.com/iRojae/market-microstructure-forecasting
 ## Optional one-liner under website/contact block
 
 ```
-Portfolio: rojaemighty.com  |  GitHub: github.com/iRojae
+Portfolio: rojaemighty.com
 ```
 
 ---

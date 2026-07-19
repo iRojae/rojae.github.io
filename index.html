@@ -378,16 +378,35 @@
       z-index: 2;
       transform: translate(-50%, -50%);
       color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+      font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: 0;
+      text-align: center;
+      text-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.72),
+        0 10px 32px rgba(0, 0, 0, 0.66);
+      pointer-events: none;
+      width: min(88vw, 920px);
+      opacity: 1;
+    }
+
+    .video-zoom-caption-title {
+      display: block;
       font-size: clamp(31px, 4.4vw, 70px);
       font-weight: 700;
-      letter-spacing: 0;
       line-height: 1.05;
-      text-align: center;
-      text-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
-      pointer-events: none;
       white-space: nowrap;
-      opacity: 1;
+    }
+
+    .video-zoom-caption-subtitle {
+      display: block;
+      max-width: 720px;
+      margin: 14px auto 0;
+      font-size: clamp(16px, 1.8vw, 25px);
+      font-weight: 400;
+      line-height: 1.28;
+      text-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.78),
+        0 8px 24px rgba(0, 0, 0, 0.68);
     }
 
     .tag {
@@ -398,6 +417,11 @@
       background: #e4f7f7;
       color: #006f7f;
       font-size: 13px;
+    }
+
+    .math-symbol {
+      color: #007f8f;
+      font-family: "Cambria Math", Cambria, "Times New Roman", serif;
     }
 
     .project-link {
@@ -415,21 +439,17 @@
       border-color: #005f6f;
     }
 
-    .slideshow {
-      display: flex;
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 20px 4px 35px;
     }
 
     .slide {
       position: relative;
-      min-width: 370px;
       height: 275px;
       border-radius: 24px;
       overflow: hidden;
-      scroll-snap-align: start;
       background-size: cover;
       background-position: center;
       box-shadow: 0 14px 35px rgba(0,0,0,0.16);
@@ -647,7 +667,6 @@
       }
 
       .slide {
-        min-width: 285px;
         height: 250px;
       }
 
@@ -663,9 +682,17 @@
 
       .video-zoom-caption {
         top: 50%;
-        width: min(88vw, 420px);
+        width: min(88vw, 520px);
+      }
+
+      .video-zoom-caption-title {
         font-size: clamp(29px, 8.8vw, 46px);
         white-space: normal;
+      }
+
+      .video-zoom-caption-subtitle {
+        margin-top: 10px;
+        font-size: clamp(15px, 4vw, 20px);
       }
 
       .photo-card img {
@@ -730,8 +757,9 @@
         <h1>Rojae Mighty</h1>
         <h3>Physics Undergraduate Researcher | Stony Brook University</h3>
         <p>
-          I study nuclear physics, gluon saturation, geometric scaling, and computational methods
-          for high-energy collisions. My work combines physics, numerical analysis, C++/ROOT,
+          Physics undergraduate researcher studying nuclear physics, gluon saturation, geometric
+          scaling, and computational methods for high-energy collisions. His work combines physics,
+          numerical analysis, C++/ROOT,
           and data-driven modeling.
         </p>
 
@@ -752,15 +780,17 @@
       <div class="card">
         <h3>Academic Focus</h3>
         <p>
-          My academic work centers on high-energy nuclear physics, QCD, parton structure,
-          gluon saturation, and the physics goals of the Electron-Ion Collider.
+          His academic work centers on the future Electron-Ion Collider, which will probe
+          the structure of protons and nuclei through the quarks and gluons that make them up.
+          His work helps build expectations for what the EIC should measure and how those
+          measurements may appear.
         </p>
       </div>
 
       <div class="card">
         <h3>Computational Skills</h3>
         <p>
-          I use C++, ROOT, Python, Unix/Linux, numerical simulations, Monte Carlo event
+          Uses C++, ROOT, Python, Unix/Linux, numerical simulations, Monte Carlo event
           generators, and data analysis workflows for physics research.
         </p>
       </div>
@@ -768,9 +798,10 @@
       <div class="card">
         <h3>Career Goals</h3>
         <p>
-          I am interested in paths that combine physics, computation, and data-driven modeling,
-          including graduate research in nuclear physics and quantitative roles that apply
-          rigorous analytical methods to complex systems.
+          Interested in paths that apply rigorous analytical methods to complex systems,
+          including graduate research in nuclear physics and quantitative finance. Across
+          both fields, his focus is on computational modeling, data analysis, and careful
+          reasoning under uncertainty.
         </p>
       </div>
     </div>
@@ -784,36 +815,48 @@
         </video>
         <a class="video-source-link" href="https://www.bnl.gov/eic/" target="_blank" rel="noopener noreferrer">bnl.gov/eic</a>
       </div>
-      <div class="video-zoom-caption">Electron-Ion Collision</div>
+      <div class="video-zoom-caption">
+        <span class="video-zoom-caption-title">Electron Ion Collision</span>
+        <span class="video-zoom-caption-subtitle">An electron collides with a nucleus, revealing the quarks and gluons hidden inside.</span>
+      </div>
     </div>
   </section>
 
   <section id="research" class="highlight">
     <h2 class="section-title">Research</h2>
     <p class="section-subtitle">
-      My work connects nuclear physics, computational modeling, data analysis, and quantitative problem solving.
+      Research connecting nuclear physics, computational modeling, data analysis, and quantitative problem solving.
     </p>
 
     <div class="grid">
       <div class="card">
         <h3>Gluon Saturation at the EIC</h3>
         <p>
-          Studying gluon saturation through geometric scaling at the Electron-Ion Collider,
-          with a novel focus on using a spatially dependent nuclear parton distribution function
-          to study centrality in QCD dynamics at small x.
+          At high energies, gluons multiply until their growth may begin to saturate,
+          revealing new behavior in nuclear matter. This research analyzes 10 million
+          simulated electron–nucleus collisions using geometric scaling and spatially
+          dependent nuclear structure to study where saturation occurs and how the
+          Electron–Ion Collider could detect it.
         </p>
         <span class="tag">EIC</span>
         <span class="tag">QCD</span>
         <span class="tag">Gluon Saturation</span>
+        <span class="tag">nPDF</span>
+        <a class="project-link" href="https://agenda.infn.it/event/47074/contributions/289298/attachments/149647/228883/DIS2026.pdf" target="_blank" rel="noopener noreferrer">See presentation →</a>
       </div>
 
       <div class="card">
         <h3>EIC Kinematic Reconstruction</h3>
         <p>
-          Developing machine learning model for Deep Inelastic Scattering kinematic reconstruction at the Electron-Ion Collider,
-          including extracting x and Q² for inclusive processes and extending these techniques
-          to additional scattering channels.
+          Before researchers can study electron–nucleus collisions, they must reconstruct
+          key kinematic quantities such as <span class="math-symbol"><i>x</i></span> and <span class="math-symbol"><i>Q</i><sup>2</sup></span>. This time-intensive step can slow
+          the analysis of large datasets. This project uses machine learning to make
+          reconstruction faster and more accurate, improving data-analysis efficiency
+          across the international electron-Proton/Ion Collider (ePIC) collaboration.
         </p>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Kinematics</span>
+        <span class="tag">ePIC</span>
       </div>
 
       <div class="card">
@@ -839,7 +882,7 @@
       Fellowships, presentation awards, travel grants, and academic recognition.
     </p>
 
-    <div class="slideshow">
+    <div class="awards-grid">
       <div class="slide" style="background-image: url('images/Yale.jpeg');">
         <div class="slide-content">
           <h3>1st Place, Physical Sciences Presentation</h3>
@@ -879,7 +922,7 @@
     <div class="photo-grid">
       <div class="photo-card">
         <img src="images/bnlmini.jpeg" alt="BNL Mini-Semester">
-        <div class="caption">Brookhaven National Lab Mini-Semester — First BNL Experience</div>
+        <div class="caption">Brookhaven National Lab Mini-Semester — first BNL experience</div>
       </div>
 
       <div class="photo-card">
@@ -899,12 +942,12 @@
 
       <div class="photo-card">
         <img src="images/dnp.jpg" alt="APS Division of Nuclear Physics CEU">
-        <div class="caption">APS DNP CEU — First Conference Presentation</div>
+        <div class="caption">APS DNP CEU — first conference presentation</div>
       </div>
 
       <div class="photo-card">
         <img src="images/DIS.jpeg" alt="DIS 2026">
-        <div class="caption">DIS 2026 at Bologna, Italy — First International Conference</div>
+        <div class="caption">DIS 2026 at Bologna, Italy — first international conference</div>
       </div>
 
       <div class="photo-card">
