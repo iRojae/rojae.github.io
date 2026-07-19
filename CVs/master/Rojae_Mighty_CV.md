@@ -63,16 +63,17 @@ li {
   clear: both;
 }
 
-.page-break {
-  break-before: page;
-}
 </style>
 
 <p class="contact">Amityville, NY | rojaemighty@icloud.com | rojae.mighty@stonybrook.edu | rojaemighty.com | linkedin.com/in/rojaemight | github.com/iRojae</p>
 
 ## Academic Profile
 
-Physics undergraduate at Stony Brook University with research experience in high-energy nuclear physics, scientific computing, machine learning, and statistical analysis. My work centers on the future Electron-Ion Collider, gluon saturation, geometric scaling, and reproducible computational workflows for large simulated collision datasets. I am also exploring how rigorous physics training, simulation pipelines, and careful reasoning under uncertainty transfer to quantitative finance and data-focused technical work.
+Physics undergraduate at Stony Brook University with research experience in high-energy nuclear physics, scientific computing, machine learning, and statistical analysis. Current work centers on the future Electron-Ion Collider, gluon saturation, geometric scaling, and reproducible computational workflows for large simulated collision datasets. The common thread across this work is quantitative modeling: turning open-ended scientific questions into code, validated analysis, and clear research communication.
+
+## Research Interests
+
+Electron-Ion Collider physics; QCD and gluon saturation at small x; Deep Inelastic Scattering kinematic reconstruction; scientific machine learning; Monte Carlo simulation; statistical modeling of complex physical and financial systems.
 
 ## Education
 
@@ -105,12 +106,12 @@ Relevant Coursework: Electromagnetic Theory, Statistical Mechanics, Computationa
 - Created reusable workflows that improved repeatability, verification, and sharing of analysis results across research tasks.
 - Presented research at DIS, APS Global Physics Summit, Yale URC, NSBP, APS DNP, and Stony Brook Physics Colloquium.
 
-## Research Themes
+## Research and Technical Themes
 
 - **Gluon saturation and geometric scaling:** Study how high-energy gluon growth may saturate in nuclear matter and how the EIC could observe these effects.
-- **Electron-Ion Collider kinematics:** Use computational methods to reconstruct event-level physics quantities needed for electron-nucleus analysis.
-- **Scientific machine learning:** Apply data pipelines, numerical simulation, and statistical validation to physical systems with large event samples.
-- **Physics-to-quantitative modeling:** Extend experience with simulation, uncertainty, and large datasets into market microstructure and systematic research projects.
+- **Electron-Ion Collider kinematics:** Use computational and machine-learning methods to reconstruct event-level physics quantities needed for electron-nucleus analysis.
+- **Scientific machine learning:** Apply data pipelines, numerical simulation, feature engineering, and statistical validation to physical systems with large event samples.
+- **Quantitative modeling:** Extend experience with simulation, uncertainty, and large datasets into market microstructure and systematic research projects.
 
 ## Projects
 
@@ -121,8 +122,6 @@ GitHub: https://github.com/iRojae/market-microstructure-forecasting
 - Engineered trading features including order-flow imbalance and bid-ask spread changes.
 - Evaluated models with walk-forward validation and transaction-cost-aware backtesting.
 - Used the project to connect physics research habits - reproducibility, controlled validation, and uncertainty-aware modeling - with quantitative finance problems.
-
-<div class="page-break"></div>
 
 ### J.P. Morgan Quantitative Research Virtual Experience Program - Forage <span class="meta">January 2026</span><span class="clear"></span>
 
@@ -139,6 +138,8 @@ GitHub: https://github.com/iRojae/market-microstructure-forecasting
 - Project supported by the Edward Guiliano Fellowship: "Myth and Matter: Exploring Early Explanations of Nature," Greece
 
 ## Presentations and Conferences
+
+**Geometric Scaling and Gluon Saturation at the EIC**
 
 - Deep Inelastic Scattering Conference (DIS 2026), Bologna, Italy - oral presentation
 - APS Global Physics Summit, 2026 - oral presentation

@@ -1,15 +1,12 @@
 # CVs
 
-One folder per application. Keep the **master CV** as the full academic record; create **tailored CVs** from Markdown for each role or program.
+Keep one public **master CV** as the full academic record for the website. Use tailored resumes, not extra public CVs, for specific applications.
 
 ## Layout
 
 ```
 CVs/
-├── master/                      # Full CV: research, conferences, leadership, service
-│   ├── Rojae_Mighty_CV.md
-│   └── Rojae_Mighty_CV.pdf
-└── google-student-researcher/   # Tailored CV example
+└── master/                      # Full CV: research, conferences, leadership, service
     ├── Rojae_Mighty_CV.md
     └── Rojae_Mighty_CV.pdf
 ```
@@ -27,9 +24,9 @@ CVs/
 
 | Situation | File |
 |-----------|------|
-| Grad school, fellowships, research programs | `CVs/master/Rojae_Mighty_CV.pdf` or a tailored `CVs/<program>/Rojae_Mighty_CV.pdf` |
+| Grad school, fellowships, research programs | `CVs/master/Rojae_Mighty_CV.pdf` |
 | Website download link | `CVs/master/Rojae_Mighty_CV.pdf` |
 
 ## Workflow tip
 
-When shared content changes, edit **CVs/master/Rojae_Mighty_CV.md** first, render the PDF, then copy the relevant sections into tailored CV Markdown files.
+When shared content changes, edit **CVs/master/Rojae_Mighty_CV.md** first, render the PDF, then pull relevant bullets into the tailored resume Markdown files.

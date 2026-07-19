@@ -10,11 +10,7 @@ CV_TARGETS = [
     (
         ROOT / "CVs" / "master" / "Rojae_Mighty_CV.md",
         ROOT / "CVs" / "master" / "Rojae_Mighty_CV.pdf",
-    ),
-    (
-        ROOT / "CVs" / "google-student-researcher" / "Rojae_Mighty_CV.md",
-        ROOT / "CVs" / "google-student-researcher" / "Rojae_Mighty_CV.pdf",
-    ),
+    )
 ]
 
 
