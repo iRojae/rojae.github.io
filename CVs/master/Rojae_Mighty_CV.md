@@ -65,7 +65,7 @@ li {
 
 </style>
 
-<p class="contact">Amityville, NY | rojaemighty@icloud.com | rojae.mighty@stonybrook.edu | rojaemighty.com | linkedin.com/in/rojaemight | github.com/iRojae</p>
+<p class="contact">Amityville, NY | rojaemighty@icloud.com | rojaemighty.com | linkedin.com/in/rojaemight | github.com/iRojae</p>
 
 ## Academic Profile
 
