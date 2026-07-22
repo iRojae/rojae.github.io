@@ -67,7 +67,7 @@ Early-stage Python ML pipeline on limit order book data. Microstructure features
 
 ## Profile photo
 
-Use the same portrait as rojaemighty.com (`images/rojae.png`) for consistency.
+Use the same portrait as rojaemighty.com (`images/rojae-mighty-portrait.png`) for consistency.
 
 ---
 
