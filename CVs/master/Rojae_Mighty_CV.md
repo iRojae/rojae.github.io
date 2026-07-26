@@ -69,7 +69,7 @@ li {
 
 ## Academic Profile
 
-Physics undergraduate at Stony Brook University with research experience in high-energy nuclear physics, scientific computing, machine learning, and statistical analysis. Current work centers on the future Electron-Ion Collider, gluon saturation, geometric scaling, and reproducible computational workflows for large simulated collision datasets. The common thread across this work is quantitative modeling: turning open-ended scientific questions into code, validated analysis, and clear research communication.
+Physics undergraduate researcher exploring quantitative finance, machine learning, and data-driven modeling alongside nuclear physics, gluon saturation, geometric scaling, and computational methods for high-energy collisions. His work combines Python, numerical analysis, C++/ROOT, and computational modeling.
 
 ## Research Interests
 

@@ -50,7 +50,7 @@ Amityville, NY | rojaemighty@icloud.com | rojaemighty.com | linkedin.com/in/roja
 
 ## Quantitative Research Profile
 
-Physics undergraduate with research experience in machine learning, statistical analysis, C++/ROOT simulation, Python data pipelines, and large-scale scientific datasets. Interested in quantitative research roles that require rigorous modeling, feature engineering, validation, and clear communication of results.
+Physics undergraduate researcher exploring quantitative finance, machine learning, and data-driven modeling alongside nuclear physics, gluon saturation, geometric scaling, and computational methods for high-energy collisions. His work combines Python, numerical analysis, C++/ROOT, and computational modeling.
 
 ## Education
 

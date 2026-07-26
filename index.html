@@ -761,7 +761,7 @@
       <div class="project-video-column">
         <h3 class="project-video-title">Electron Ion Collider</h3>
         <div class="project-video-frame">
-          <video class="project-video" autoplay muted loop playsinline preload="auto">
+          <video class="project-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
             <source src="images/EICvideo.mp4" type="video/mp4">
           </video>
           <a class="video-source-link" href="https://www.bnl.gov/eic/" target="_blank" rel="noopener noreferrer">bnl.gov/eic</a>
@@ -1087,18 +1087,41 @@
 
     const projectVideo = document.querySelector('.project-video');
     if (projectVideo) {
+      projectVideo.autoplay = true;
+      projectVideo.defaultMuted = true;
       projectVideo.muted = true;
+      projectVideo.playsInline = true;
+
       const startProjectVideo = () => {
+        if (!projectVideo.paused) return;
+
         projectVideo.play().catch(() => {
           // The browser may still require interaction under stricter autoplay settings.
         });
       };
 
-      if (projectVideo.readyState >= 2) {
-        startProjectVideo();
-      } else {
-        projectVideo.addEventListener('canplay', startProjectVideo, { once: true });
+      projectVideo.addEventListener('loadedmetadata', startProjectVideo);
+      projectVideo.addEventListener('canplay', startProjectVideo);
+      window.addEventListener('load', startProjectVideo);
+      window.addEventListener('pageshow', startProjectVideo);
+
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          startProjectVideo();
+        }
+      });
+
+      if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver(entries => {
+          if (entries.some(entry => entry.isIntersecting)) {
+            startProjectVideo();
+          }
+        }, { threshold: 0.1 });
+
+        videoObserver.observe(projectVideo);
       }
+
+      startProjectVideo();
     }
 
   </script>

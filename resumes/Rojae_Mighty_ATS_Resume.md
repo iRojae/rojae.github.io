@@ -50,7 +50,7 @@ Amityville, NY | rojaemighty@icloud.com | https://rojaemighty.com | https://www.
 
 ## Professional Summary
 
-Physics undergraduate with research experience in scientific computing, machine learning, statistical analysis, and high-energy nuclear physics. Skilled in Python, C++, ROOT, Linux shell scripting, scikit-learn, Monte Carlo simulation, and reproducible data workflows. Interested in graduate research in nuclear physics, quantitative finance, and data-focused technical roles.
+Physics undergraduate researcher exploring quantitative finance, machine learning, and data-driven modeling alongside nuclear physics, gluon saturation, geometric scaling, and computational methods for high-energy collisions. His work combines Python, numerical analysis, C++/ROOT, and computational modeling.
 
 ## Education
 

@@ -50,7 +50,7 @@ Amityville, NY | rojaemighty@icloud.com | rojae.mighty@stonybrook.edu | rojaemig
 
 ## Research Profile
 
-Physics undergraduate at Stony Brook University studying high-energy nuclear physics, gluon saturation, geometric scaling, and machine-learning methods for Electron-Ion Collider analysis. Research interests include QCD at small x, EIC kinematic reconstruction, scientific computing, and statistical methods for large simulated event samples.
+Physics undergraduate researcher exploring quantitative finance, machine learning, and data-driven modeling alongside nuclear physics, gluon saturation, geometric scaling, and computational methods for high-energy collisions. His work combines Python, numerical analysis, C++/ROOT, and computational modeling.
 
 ## Education
 
