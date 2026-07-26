@@ -761,7 +761,7 @@
       <div class="project-video-column">
         <h3 class="project-video-title">Electron Ion Collider</h3>
         <div class="project-video-frame">
-          <video class="project-video" autoplay muted loop playsinline>
+          <video class="project-video" autoplay muted loop playsinline preload="auto">
             <source src="images/EICvideo.mp4" type="video/mp4">
           </video>
           <a class="video-source-link" href="https://www.bnl.gov/eic/" target="_blank" rel="noopener noreferrer">bnl.gov/eic</a>
@@ -1084,6 +1084,22 @@
         closeLightbox();
       }
     });
+
+    const projectVideo = document.querySelector('.project-video');
+    if (projectVideo) {
+      projectVideo.muted = true;
+      const startProjectVideo = () => {
+        projectVideo.play().catch(() => {
+          // The browser may still require interaction under stricter autoplay settings.
+        });
+      };
+
+      if (projectVideo.readyState >= 2) {
+        startProjectVideo();
+      } else {
+        projectVideo.addEventListener('canplay', startProjectVideo, { once: true });
+      }
+    }
 
   </script>
 
