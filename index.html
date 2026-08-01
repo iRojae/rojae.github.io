@@ -206,10 +206,23 @@
       max-width: 750px;
     }
 
-    .hero-portrait {
+    .hero-portrait-link {
       width: min(100%, 374px);
       aspect-ratio: 4 / 5;
       justify-self: center;
+      display: block;
+      border-radius: 28px;
+    }
+
+    .hero-portrait-link:focus-visible {
+      outline: 3px solid #8ef3ef;
+      outline-offset: 5px;
+    }
+
+    .hero-portrait {
+      width: 100%;
+      height: 100%;
+      display: block;
       object-fit: cover;
       object-position: center top;
       border-radius: 28px;
@@ -433,6 +446,17 @@
       transform: translateY(-6px);
     }
 
+    .slide-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .slide-link:focus-visible {
+      outline: 3px solid #007f8f;
+      outline-offset: 4px;
+    }
+
     .slide::before {
       content: "";
       position: absolute;
@@ -486,6 +510,12 @@
 
     .photo-card:hover {
       transform: translateY(-6px);
+    }
+
+    .photo-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
     }
 
     .photo-card img {
@@ -645,7 +675,7 @@
         margin: auto;
       }
 
-      .hero-portrait {
+      .hero-portrait-link {
         width: min(79.2vw, 330px);
         grid-row: 1;
       }
@@ -712,7 +742,9 @@
           <a class="btn secondary" href="CVs/master/Rojae_Mighty_CV.pdf" target="_blank" aria-label="Download Rojae Mighty CV as a PDF">Download CV</a>
         </div>
       </div>
-      <img class="hero-portrait" src="images/rojae-mighty-portrait.png" alt="Portrait of physicist and undergraduate researcher Rojae Mighty">
+      <a class="hero-portrait-link" href="https://www.stonybrook.edu/commcms/cas/about/_profiles/mighty.php" target="_blank" rel="noopener noreferrer" aria-label="View Rojae Mighty's Stony Brook University profile">
+        <img class="hero-portrait" src="images/rojae-mighty-portrait.png" alt="Portrait of physicist and undergraduate researcher Rojae Mighty">
+      </a>
     </div>
   </header>
 
@@ -840,12 +872,12 @@
         </div>
       </div>
 
-      <div class="slide" style="background-image: url('images/rojae-mighty-barry-barish-travel-grant.jpeg');" role="img" aria-label="Rojae Mighty receiving the Barry Barish Travel Grant">
+      <a class="slide slide-link" href="https://www.stonybrook.edu/commcms/physics/deptnewsarchive.php" target="_blank" rel="noopener noreferrer" aria-label="View Stony Brook Physics news related to Rojae Mighty's Barry Barish Travel Grant" style="background-image: url('images/rojae-mighty-barry-barish-travel-grant.jpeg');">
         <div class="slide-content">
           <h3>Barry Barish Travel Grant</h3>
           <p>Awarded for winning presentation at the Stony Brook Undergraduate Research day.</p>
         </div>
-      </div>
+      </a>
 
       <div class="slide" style="background-image: url('images/rojae-mighty-edward-guiliano-fellowship.jpeg');" role="img" aria-label="Rojae Mighty in Greece for the Edward Guiliano Fellowship">
         <div class="slide-content">
@@ -863,15 +895,15 @@
     </p>
 
     <div class="photo-grid">
-      <div class="photo-card">
+      <a class="photo-card photo-link" href="https://www.stonybrook.edu/commcms/cas/about/_profiles/mighty.php" target="_blank" rel="noopener noreferrer" aria-label="View Rojae Mighty's Stony Brook University profile related to his Brookhaven National Laboratory research">
         <img src="images/rojae-mighty-bnl-mini-semester.jpeg" alt="Rojae Mighty at the Brookhaven National Laboratory Mini-Semester">
         <div class="caption">Brookhaven National Lab Mini-Semester — first BNL experience</div>
-      </div>
+      </a>
 
-      <div class="photo-card">
+      <a class="photo-card photo-link" href="https://www.stonybrook.edu/commcms/cas/about/_profiles/mighty.php" target="_blank" rel="noopener noreferrer" aria-label="View Rojae Mighty's Stony Brook University profile related to his DOE SULI research at Brookhaven National Laboratory">
         <img src="images/rojae-mighty-doe-suli-bnl.jpeg" alt="Rojae Mighty during the DOE SULI internship at Brookhaven National Laboratory">
         <div class="caption">Summer Undergraduate Laboratory Internship at BNL</div>
-      </div>
+      </a>
 
       <div class="photo-card">
         <img src="images/rojae-mighty-star-collaboration-event.jpg" alt="Rojae Mighty at a STAR Collaboration basketball event at Brookhaven National Laboratory">
@@ -883,35 +915,35 @@
         <div class="caption">Research Group Ski Trip</div>
       </div>
 
-      <div class="photo-card">
+      <a class="photo-card photo-link" href="https://meetings-archive.aps.org/dnp/2025/h01/66/" target="_blank" rel="noopener noreferrer" aria-label="View Rojae Mighty's APS Division of Nuclear Physics 2025 poster presentation">
         <img src="images/rojae-mighty-aps-dnp-conference-presentation.jpg" alt="Rojae Mighty presenting at the APS Division of Nuclear Physics conference">
         <div class="caption">APS DNP CEU — first conference presentation</div>
-      </div>
+      </a>
 
-      <div class="photo-card">
+      <a class="photo-card photo-link" href="https://agenda.infn.it/event/47074/contributions/289298/" target="_blank" rel="noopener noreferrer" aria-label="View Rojae Mighty's DIS 2026 conference contribution">
         <img src="images/rojae-mighty-dis-2026-bologna.jpeg" alt="Rojae Mighty at the DIS 2026 conference in Bologna, Italy">
         <div class="caption">DIS 2026 at Bologna, Italy — first international conference</div>
-      </div>
+      </a>
 
-      <div class="photo-card">
+      <a class="photo-card photo-link" href="https://www.stonybrook.edu/commcms/physics/events/colloquium.php" target="_blank" rel="noopener noreferrer" aria-label="View the Stony Brook Physics undergraduate colloquium page">
         <img src="images/rojae-mighty-stony-brook-physics-colloquium.jpeg" alt="Rojae Mighty speaking at the Stony Brook Physics Colloquium">
         <div class="caption">Speaking at Stony Brook Physics Colloquium</div>
-      </div>
+      </a>
 
-      <div class="photo-card">
+      <a class="photo-card photo-link" href="https://www.stonybrook.edu/commcms/physics/deptnewsarchive.php" target="_blank" rel="noopener noreferrer" aria-label="View Stony Brook Physics news related to Undergraduate Research Day">
         <img src="images/rojae-mighty-undergraduate-research-day.jpeg" alt="Rojae Mighty celebrating Undergraduate Research Day with Kong and Abhay Deshpande">
         <div class="caption">Celebrating Undergraduate Research Day with Kong and Abhay Deshpande</div>
-      </div>
+      </a>
 
-      <div class="photo-card">
+      <a class="photo-card photo-link" href="https://www.stonybrook.edu/commcms/cas/about/_profiles/mighty.php" target="_blank" rel="noopener noreferrer" aria-label="View Rojae Mighty's Stony Brook University profile">
         <img src="images/rojae-mighty-admitted-seawolves-day.jpeg" alt="Rojae Mighty serving as an Admitted Seawolves Day panelist">
         <div class="caption">Admitted Seawolves Day Panelist</div>
-      </div>
+      </a>
 
-      <div class="photo-card">
+      <a class="photo-card photo-link" href="https://www.stonybrook.edu/commcms/cas/about/student_advisory_council.php" target="_blank" rel="noopener noreferrer" aria-label="View the Stony Brook College of Arts and Sciences Dean's Student Leadership Advisory Council page">
         <img src="images/rojae-mighty-deans-student-leadership-council.jpeg" alt="Rojae Mighty on the Dean's Student Leadership and Advisory Council">
         <div class="caption">Dean's Student Leadership & Advisory Council</div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -957,7 +989,7 @@
   </footer>
 
   <script>
-    const cards = document.querySelectorAll('.photo-card');
+    const cards = document.querySelectorAll('.photo-card:not(a)');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');

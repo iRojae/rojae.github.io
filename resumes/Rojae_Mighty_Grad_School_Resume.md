@@ -55,7 +55,7 @@ Physics undergraduate researcher exploring quantitative finance, machine learnin
 ## Education
 
 **Stony Brook University**, Stony Brook, NY | **B.S. in Physics**, Expected May 2028 | GPA: 3.7  
-Relevant Coursework: Electromagnetic Theory, Statistical Mechanics, Computational Methods, Calculus, Linear Algebra
+Relevant Coursework: Electromagnetic Theory, Statistical Mechanics, Computational Methods, Calculus, Linear Algebra  
 
 ## Research Experience
 
