@@ -47,7 +47,7 @@
     body {
       font-family: "Produkt", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       font-weight: 400;
-      background: #f7fbff;
+      background: #e7f0f3;
       color: #102033;
       line-height: 1.6;
     }
@@ -61,7 +61,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255, 255, 255, 0.76);
+      background: rgba(235, 244, 247, 0.82);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255,255,255,0.3);
     }
@@ -159,10 +159,28 @@
       align-items: center;
       justify-content: center;
       padding: 105px 8% 55px;
-      overflow: hidden;
+      overflow: visible;
       background:
         linear-gradient(90deg, rgba(3, 24, 37, 0.92) 0%, rgba(3, 35, 50, 0.74) 52%, rgba(3, 24, 37, 0.42) 100%),
         url("images/rojae-mighty-stony-brook-campus.png") center / cover no-repeat;
+    }
+
+    #hero::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      right: 0;
+      bottom: -100px;
+      height: 180px;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(3, 24, 37, 0.92) 0%,
+        rgba(19, 56, 71, 0.72) 34%,
+        rgba(231, 240, 243, 0.9) 76%,
+        #e7f0f3 100%
+      );
     }
 
     .hero-card {
@@ -284,11 +302,13 @@
     }
 
     .card {
-      background: white;
+      background: rgba(252, 254, 255, 0.84);
       border-radius: 22px;
       padding: 28px;
       box-shadow: 0 12px 35px rgba(0,0,0,0.08);
       border: 1px solid rgba(0, 127, 143, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       transition: 0.25s;
     }
 
@@ -313,7 +333,12 @@
     }
 
     #about {
+      padding-top: 130px;
       padding-bottom: 45px;
+    }
+
+    #awards {
+      padding-top: 120px;
     }
 
     .projects-section {
@@ -328,7 +353,7 @@
       content: "";
       position: absolute;
       z-index: 0;
-      inset: -150px 0;
+      inset: -120px 0;
       pointer-events: none;
       background: linear-gradient(
         180deg,
@@ -339,25 +364,25 @@
         rgba(3, 31, 46, 0.22) 90%,
         transparent 100%
       );
-      filter: blur(34px);
+      filter: blur(30px);
     }
 
     .projects-section::after {
       content: "";
       position: absolute;
       z-index: 1;
-      inset: -110px 0;
+      inset: -90px 0;
       pointer-events: none;
       background:
         linear-gradient(180deg, transparent 0%, rgba(2, 22, 34, 0.35) 18%, rgba(2, 22, 34, 0.72) 31%, rgba(2, 32, 45, 0.5) 50%, rgba(2, 22, 34, 0.76) 69%, rgba(2, 22, 34, 0.35) 82%, transparent 100%),
         radial-gradient(circle at center, transparent 0%, rgba(1, 18, 28, 0.26) 78%);
-      filter: blur(18px);
+      filter: blur(16px);
     }
 
     .project-video-background {
       position: absolute;
       z-index: 0;
-      inset: -140px 0;
+      inset: -110px 0;
       width: 100%;
       height: auto;
       overflow: hidden;
@@ -377,7 +402,7 @@
     .video-focus-toggle {
       position: absolute;
       z-index: 2;
-      inset: 140px 0;
+      inset: 110px 0;
       width: 100%;
       height: auto;
       padding: 0;
