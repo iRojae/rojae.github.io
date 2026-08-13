@@ -346,6 +346,8 @@
         transparent 100%
       );
       filter: blur(30px);
+      will-change: opacity;
+      transition: opacity 0.36s ease;
     }
 
     .projects-section::after {
@@ -358,6 +360,8 @@
         linear-gradient(180deg, transparent 0%, rgba(2, 22, 34, 0.45) 8%, rgba(2, 22, 34, 0.72) 16%, rgba(2, 32, 45, 0.5) 50%, rgba(2, 22, 34, 0.76) 84%, rgba(2, 22, 34, 0.45) 92%, transparent 100%),
         radial-gradient(circle at center, transparent 0%, rgba(1, 18, 28, 0.26) 78%);
       filter: blur(16px);
+      will-change: opacity;
+      transition: opacity 0.36s ease;
     }
 
     .project-video-background {
@@ -367,9 +371,6 @@
       width: 100%;
       height: auto;
       overflow: hidden;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
-      mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
-      transition: z-index 0s linear 0.28s;
     }
 
     .project-video-background .project-video {
@@ -378,6 +379,8 @@
       display: block;
       object-fit: cover;
       object-position: center;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
 
     .video-focus-toggle {
@@ -415,7 +418,8 @@
       -webkit-backdrop-filter: blur(12px);
       opacity: 0;
       transform: translate(-50%, 18px);
-      transition: opacity 0.28s ease, transform 0.28s ease;
+      will-change: opacity, transform;
+      transition: opacity 0.26s ease, transform 0.32s ease;
     }
 
     .video-focus-title {
@@ -432,25 +436,34 @@
       line-height: 1.45;
     }
 
-    .projects-section.video-is-focused .project-video-background {
-      z-index: 10;
-      inset: 0;
-      -webkit-mask-image: none;
-      mask-image: none;
-      transition-delay: 0s;
-    }
-
     .projects-section.video-is-focused .video-focus-toggle {
       inset: 0;
       cursor: zoom-out;
     }
 
-    .projects-section.video-is-focused .video-focus-copy {
-      opacity: 1;
+    .projects-section.video-is-focused::before,
+    .projects-section.video-is-focused::after {
+      opacity: 0;
     }
 
     .projects-section.video-is-focused .video-focus-copy {
+      opacity: 1;
       transform: translate(-50%, 0);
+      transition-delay: 0.12s;
+    }
+
+    .projects-content {
+      position: relative;
+      z-index: 2;
+      transform: translateZ(0);
+      will-change: opacity, transform;
+      transition: opacity 0.3s ease, transform 0.36s ease;
+    }
+
+    .projects-section.video-is-focused .projects-content {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateZ(0) scale(0.985);
     }
 
     .projects-heading-panel {
@@ -641,6 +654,13 @@
 
     @media (prefers-reduced-motion: reduce) {
       .project-video-background .project-video {
+        transition: none;
+      }
+
+      .projects-section::before,
+      .projects-section::after,
+      .projects-content,
+      .video-focus-copy {
         transition: none;
       }
 
@@ -1045,15 +1065,16 @@
         </span>
       </button>
     </div>
-    <div class="projects-heading-panel">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-subtitle">
-        Projects connecting quantitative finance, machine learning, data analysis, and computational
-        modeling with nuclear physics, gluon saturation, and high-energy collision research.
-      </p>
-    </div>
+    <div class="projects-content">
+      <div class="projects-heading-panel">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          Projects connecting quantitative finance, machine learning, data analysis, and computational
+          modeling with nuclear physics, gluon saturation, and high-energy collision research.
+        </p>
+      </div>
 
-    <div class="grid projects-grid">
+      <div class="grid projects-grid">
         <div class="card">
           <h3>Market Microstructure Forecasting</h3>
           <p>
@@ -1114,8 +1135,9 @@
           <span class="tag">EIC</span>
           <span class="tag">C++/ROOT</span>
         </div>
+      </div>
+      <a class="video-source-link" href="https://www.bnl.gov/eic/" target="_blank" rel="noopener noreferrer">EIC visual · bnl.gov/eic</a>
     </div>
-    <a class="video-source-link" href="https://www.bnl.gov/eic/" target="_blank" rel="noopener noreferrer">EIC visual · bnl.gov/eic</a>
   </section>
 
   <div id="project-modal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" hidden>
@@ -1286,6 +1308,7 @@
     const projectModalClose = document.querySelector('.project-modal-close');
     const projectsSection = document.getElementById('projects');
     const projectVideoToggle = document.querySelector('.video-focus-toggle');
+    const projectsContent = document.querySelector('.projects-content');
 
     function closeMobileNav() {
       if (!nav || !navToggle) return;
@@ -1395,6 +1418,8 @@
 
     function setProjectVideoFocus(isFocused) {
       projectsSection.classList.toggle('video-is-focused', isFocused);
+      projectsContent.inert = isFocused;
+      projectsContent.setAttribute('aria-hidden', String(isFocused));
       projectVideoToggle.setAttribute('aria-pressed', String(isFocused));
       projectVideoToggle.setAttribute(
         'aria-label',
