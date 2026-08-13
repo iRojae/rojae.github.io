@@ -319,39 +319,50 @@
     .projects-section {
       position: relative;
       isolation: isolate;
-      overflow: hidden;
+      overflow: visible;
       padding-top: 55px;
+      background: transparent;
+    }
+
+    .projects-section::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset: -150px 0;
+      pointer-events: none;
       background: linear-gradient(
         180deg,
-        #f7fbff 0%,
-        #173d4c 10%,
-        #031f2e 18%,
-        #031f2e 82%,
-        #173d4c 90%,
-        #f7fbff 100%
+        transparent 0%,
+        rgba(3, 31, 46, 0.22) 10%,
+        #031f2e 28%,
+        #031f2e 72%,
+        rgba(3, 31, 46, 0.22) 90%,
+        transparent 100%
       );
+      filter: blur(34px);
     }
 
     .projects-section::after {
       content: "";
       position: absolute;
       z-index: 1;
-      inset: 0;
+      inset: -110px 0;
       pointer-events: none;
       background:
-        linear-gradient(180deg, transparent 0%, rgba(2, 22, 34, 0.72) 13%, rgba(2, 32, 45, 0.5) 50%, rgba(2, 22, 34, 0.76) 87%, transparent 100%),
+        linear-gradient(180deg, transparent 0%, rgba(2, 22, 34, 0.35) 18%, rgba(2, 22, 34, 0.72) 31%, rgba(2, 32, 45, 0.5) 50%, rgba(2, 22, 34, 0.76) 69%, rgba(2, 22, 34, 0.35) 82%, transparent 100%),
         radial-gradient(circle at center, transparent 0%, rgba(1, 18, 28, 0.26) 78%);
+      filter: blur(18px);
     }
 
     .project-video-background {
       position: absolute;
       z-index: 0;
-      inset: 0;
+      inset: -140px 0;
       width: 100%;
-      height: 100%;
+      height: auto;
       overflow: hidden;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 89%, transparent 100%);
-      mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 89%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 74%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 74%, transparent 100%);
       transition: z-index 0s linear 0.28s;
     }
 
@@ -366,9 +377,9 @@
     .video-focus-toggle {
       position: absolute;
       z-index: 2;
-      inset: 0;
+      inset: 140px 0;
       width: 100%;
-      height: 100%;
+      height: auto;
       padding: 0;
       border: 0;
       color: #ffffff;
@@ -397,7 +408,7 @@
       bottom: clamp(58px, 8vw, 100px);
       width: min(760px, calc(100% - 40px));
       padding: clamp(22px, 4vw, 36px);
-      border: 1px solid rgba(255, 255, 255, 0.32);
+      border: 0;
       border-radius: 24px;
       background: rgba(2, 24, 35, 0.58);
       box-shadow: 0 24px 65px rgba(0, 0, 0, 0.38);
@@ -426,12 +437,14 @@
 
     .projects-section.video-is-focused .project-video-background {
       z-index: 10;
+      inset: 0;
       -webkit-mask-image: none;
       mask-image: none;
       transition-delay: 0s;
     }
 
     .projects-section.video-is-focused .video-focus-toggle {
+      inset: 0;
       cursor: zoom-out;
     }
 
@@ -444,19 +457,31 @@
       transform: translate(-50%, 0);
     }
 
-    .projects-section .section-title {
+    .projects-heading-panel {
       position: relative;
       z-index: 2;
+      width: min(940px, 100%);
+      margin: 0 auto 50px;
+      padding: clamp(24px, 4vw, 36px);
+      border: 0;
+      border-radius: 24px;
+      background: rgba(3, 31, 46, 0.68);
+      box-shadow: 0 22px 58px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .projects-section .section-title {
       color: #ffffff;
-      font-weight: 700;
-      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.86), 0 8px 28px rgba(0, 0, 0, 0.72);
+      margin-bottom: 12px;
+      font-weight: 200;
+      text-shadow: none;
     }
 
     .projects-section .section-subtitle {
-      position: relative;
-      z-index: 2;
+      margin-bottom: 0;
       color: rgba(255, 255, 255, 0.9);
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.92), 0 7px 24px rgba(0, 0, 0, 0.78);
+      text-shadow: none;
     }
 
     .video-source-link {
@@ -496,15 +521,38 @@
     .projects-grid .card {
       height: 100%;
       cursor: pointer;
-      background: rgba(249, 253, 255, 0.84);
-      border-color: rgba(255, 255, 255, 0.52);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+      background: rgba(3, 31, 46, 0.74);
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
       backdrop-filter: blur(16px) saturate(125%);
       -webkit-backdrop-filter: blur(16px) saturate(125%);
     }
 
     .projects-grid .card:hover {
-      background: rgba(255, 255, 255, 0.93);
+      background: rgba(3, 31, 46, 0.86);
+    }
+
+    .projects-grid .card h3 {
+      color: #8ef3ef;
+    }
+
+    .projects-grid .card p {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .projects-grid .tag {
+      color: #bffdfb;
+      background: rgba(142, 243, 239, 0.14);
+    }
+
+    .projects-grid .project-link {
+      color: #8ef3ef;
+      border-color: rgba(142, 243, 239, 0.46);
+    }
+
+    .projects-grid .project-link:hover {
+      color: #d3fffd;
+      border-color: #d3fffd;
     }
 
     .projects-grid .card:focus-visible {
@@ -893,7 +941,7 @@
       }
 
       .projects-grid .card {
-        background: rgba(255, 255, 255, 0.88);
+        background: rgba(3, 31, 46, 0.8);
       }
 
       .project-modal {
@@ -1001,11 +1049,13 @@
         </span>
       </button>
     </div>
-    <h2 class="section-title">Projects</h2>
-    <p class="section-subtitle">
-      Projects connecting quantitative finance, machine learning, data analysis, and computational
-      modeling with nuclear physics, gluon saturation, and high-energy collision research.
-    </p>
+    <div class="projects-heading-panel">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        Projects connecting quantitative finance, machine learning, data analysis, and computational
+        modeling with nuclear physics, gluon saturation, and high-energy collision research.
+      </p>
+    </div>
 
     <div class="grid projects-grid">
         <div class="card">
