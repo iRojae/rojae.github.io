@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rojae Mighty</title>
-  <meta name="description" content="Rojae Mighty — Stony Brook physics researcher working across nuclear physics, machine learning, quantitative modeling, and high-energy collisions." />
+  <meta name="description" content="Rojae Mighty — Physics undergraduate researcher at Stony Brook University studying nuclear physics, gluon saturation, and computational methods for high-energy collisions." />
   <meta name="theme-color" content="#06293d" />
   <link rel="canonical" href="https://rojaemighty.com/" />
   <meta property="og:title" content="Rojae Mighty" />
-  <meta property="og:description" content="Physics, machine learning, and quantitative modeling—including a completed FI-2010 market-microstructure benchmark with 73.25% held-out accuracy." />
+  <meta property="og:description" content="Physics Undergraduate Researcher | Stony Brook University. Nuclear physics, gluon saturation, and computational methods for high-energy collisions." />
   <meta property="og:image" content="https://rojaemighty.com/images/rojae-mighty-portrait.png" />
   <meta property="og:image:alt" content="Portrait of physicist and undergraduate researcher Rojae Mighty" />
   <meta property="og:url" content="https://rojaemighty.com/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Rojae Mighty" />
-  <meta name="twitter:description" content="Physics researcher working across machine learning, quantitative modeling, and high-energy collisions." />
+  <meta name="twitter:description" content="Physics Undergraduate Researcher | Stony Brook University" />
   <meta name="twitter:image" content="https://rojaemighty.com/images/rojae-mighty-portrait.png" />
   <meta name="twitter:image:alt" content="Portrait of physicist and undergraduate researcher Rojae Mighty" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
@@ -330,89 +330,6 @@
     .card p {
       color: #385363;
       font-size: 15.5px;
-    }
-
-    .featured-project {
-      position: relative;
-      overflow: hidden;
-      border-color: rgba(0, 127, 143, 0.28);
-      box-shadow: 0 18px 48px rgba(0, 96, 113, 0.13);
-    }
-
-    .featured-project::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, #007f8f, #16b3a7);
-    }
-
-    .project-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-bottom: 12px;
-      color: #006b63;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .project-status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #16a394;
-      box-shadow: 0 0 0 4px rgba(22, 163, 148, 0.12);
-    }
-
-    .project-metrics {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin: 22px 0 14px;
-    }
-
-    .project-metric {
-      min-height: 88px;
-      padding: 14px;
-      background: #f2fafb;
-      border: 1px solid rgba(0, 127, 143, 0.12);
-      border-radius: 14px;
-    }
-
-    .project-metric strong {
-      display: block;
-      color: #006f7f;
-      font-size: clamp(20px, 2.1vw, 27px);
-      font-weight: 400;
-      line-height: 1.05;
-    }
-
-    .project-metric span {
-      display: block;
-      margin-top: 7px;
-      color: #496472;
-      font-size: 12px;
-      line-height: 1.3;
-    }
-
-    .project-note {
-      margin-bottom: 10px;
-      color: #607683;
-      font-size: 12.5px;
-      line-height: 1.45;
-    }
-
-    .project-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
-      align-items: center;
     }
 
     .highlight {
@@ -806,10 +723,6 @@
         position: static;
       }
 
-      .project-metrics {
-        grid-template-columns: 1fr;
-      }
-
       .photo-card img {
         height: 220px;
       }
@@ -859,7 +772,7 @@
         </div>
 
         <div class="buttons">
-          <a class="btn" href="#market-microstructure">View Featured Project</a>
+          <a class="btn" href="https://github.com/iRojae/market-microstructure-forecasting" target="_blank" rel="noopener noreferrer">View Featured Project</a>
           <a class="btn secondary" href="#awards">Awards</a>
           <a class="btn secondary" href="CVs/master/Rojae_Mighty_CV.pdf" target="_blank" aria-label="Download Rojae Mighty CV as a PDF">Download CV</a>
         </div>
@@ -924,45 +837,19 @@
       </div>
 
       <div class="grid projects-grid">
-        <div class="card featured-project" id="market-microstructure">
-          <span class="project-status">Completed benchmark</span>
+        <div class="card">
           <h3>Market Microstructure Forecasting</h3>
           <p>
-            Built a reproducible Python machine-learning pipeline to classify short-horizon
-            limit-order-book movement as up, stationary, or down. The project compares a majority
-            baseline, multinomial logistic regression, and histogram gradient boosting across
-            394,337 FI-2010 observations, using chronological validation without shuffling.
-          </p>
-          <div class="project-metrics" aria-label="Market microstructure forecasting results">
-            <div class="project-metric">
-              <strong>73.25%</strong>
-              <span>held-out three-class accuracy</span>
-            </div>
-            <div class="project-metric">
-              <strong>+16.31 pp</strong>
-              <span>accuracy lift over majority baseline</span>
-            </div>
-            <div class="project-metric">
-              <strong>37.88%</strong>
-              <span>classification-error reduction</span>
-            </div>
-            <div class="project-metric">
-              <strong>64.13%</strong>
-              <span>macro F1 across all movement classes</span>
-            </div>
-          </div>
-          <p class="project-note">
-            Results come from the held-out FI-2010 test split at horizon k=2. This is a movement-classification benchmark, not a trading-return or Sharpe-ratio claim.
+            Early-stage project: building a Python ML pipeline on limit order book data to forecast
+            short-horizon mid-price returns and volatility. Current focus is microstructure feature
+            design (order-flow imbalance, spread dynamics), with walk-forward validation and
+            transaction-cost-aware backtesting planned next.
           </p>
           <span class="tag">Time Series</span>
           <span class="tag">Machine Learning</span>
           <span class="tag">Python</span>
-          <span class="tag">FI-2010</span>
-          <span class="tag">scikit-learn</span>
-          <div class="project-actions">
-            <a class="project-link" href="https://github.com/iRojae/market-microstructure-forecasting" target="_blank" rel="noopener noreferrer">Explore the project →</a>
-            <a class="project-link" href="https://github.com/iRojae/market-microstructure-forecasting/blob/main/results/fi2010_h2_metrics.csv" target="_blank" rel="noopener noreferrer">View exact results →</a>
-          </div>
+          <span class="tag">Backtesting</span>
+          <a class="project-link" href="https://github.com/iRojae/market-microstructure-forecasting" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
         </div>
 
         <div class="card">
