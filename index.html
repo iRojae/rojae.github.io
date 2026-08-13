@@ -159,28 +159,10 @@
       align-items: center;
       justify-content: center;
       padding: 105px 8% 55px;
-      overflow: visible;
+      overflow: hidden;
       background:
         linear-gradient(90deg, rgba(3, 24, 37, 0.92) 0%, rgba(3, 35, 50, 0.74) 52%, rgba(3, 24, 37, 0.42) 100%),
         url("images/rojae-mighty-stony-brook-campus.png") center / cover no-repeat;
-    }
-
-    #hero::after {
-      content: "";
-      position: absolute;
-      z-index: 0;
-      left: 0;
-      right: 0;
-      bottom: -100px;
-      height: 180px;
-      pointer-events: none;
-      background: linear-gradient(
-        180deg,
-        rgba(3, 24, 37, 0.92) 0%,
-        rgba(19, 56, 71, 0.72) 34%,
-        rgba(231, 240, 243, 0.9) 76%,
-        #e7f0f3 100%
-      );
     }
 
     .hero-card {
@@ -333,7 +315,6 @@
     }
 
     #about {
-      padding-top: 130px;
       padding-bottom: 45px;
     }
 
@@ -344,7 +325,7 @@
     .projects-section {
       position: relative;
       isolation: isolate;
-      overflow: visible;
+      overflow: hidden;
       padding-top: 55px;
       background: transparent;
     }
@@ -353,15 +334,15 @@
       content: "";
       position: absolute;
       z-index: 0;
-      inset: -120px 0;
+      inset: 0;
       pointer-events: none;
       background: linear-gradient(
         180deg,
         transparent 0%,
-        rgba(3, 31, 46, 0.22) 10%,
-        #031f2e 28%,
-        #031f2e 72%,
-        rgba(3, 31, 46, 0.22) 90%,
+        rgba(3, 31, 46, 0.22) 5%,
+        #031f2e 14%,
+        #031f2e 86%,
+        rgba(3, 31, 46, 0.22) 95%,
         transparent 100%
       );
       filter: blur(30px);
@@ -371,10 +352,10 @@
       content: "";
       position: absolute;
       z-index: 1;
-      inset: -90px 0;
+      inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(180deg, transparent 0%, rgba(2, 22, 34, 0.35) 18%, rgba(2, 22, 34, 0.72) 31%, rgba(2, 32, 45, 0.5) 50%, rgba(2, 22, 34, 0.76) 69%, rgba(2, 22, 34, 0.35) 82%, transparent 100%),
+        linear-gradient(180deg, transparent 0%, rgba(2, 22, 34, 0.45) 8%, rgba(2, 22, 34, 0.72) 16%, rgba(2, 32, 45, 0.5) 50%, rgba(2, 22, 34, 0.76) 84%, rgba(2, 22, 34, 0.45) 92%, transparent 100%),
         radial-gradient(circle at center, transparent 0%, rgba(1, 18, 28, 0.26) 78%);
       filter: blur(16px);
     }
@@ -382,12 +363,12 @@
     .project-video-background {
       position: absolute;
       z-index: 0;
-      inset: -110px 0;
+      inset: 0;
       width: 100%;
       height: auto;
       overflow: hidden;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 74%, transparent 100%);
-      mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 74%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
       transition: z-index 0s linear 0.28s;
     }
 
@@ -402,7 +383,7 @@
     .video-focus-toggle {
       position: absolute;
       z-index: 2;
-      inset: 110px 0;
+      inset: 0;
       width: 100%;
       height: auto;
       padding: 0;
@@ -410,15 +391,6 @@
       color: #ffffff;
       background: transparent;
       cursor: zoom-in;
-    }
-
-    .video-focus-toggle::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(1, 14, 22, 0.14), rgba(1, 14, 22, 0.6));
-      opacity: 0;
-      transition: opacity 0.28s ease;
     }
 
     .video-focus-toggle:focus-visible {
@@ -473,7 +445,6 @@
       cursor: zoom-out;
     }
 
-    .projects-section.video-is-focused .video-focus-toggle::before,
     .projects-section.video-is-focused .video-focus-copy {
       opacity: 1;
     }
