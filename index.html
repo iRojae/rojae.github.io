@@ -321,15 +321,12 @@
     }
 
     .projects-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-      gap: clamp(30px, 5vw, 72px);
-      align-items: start;
+      display: block;
     }
 
     .project-video-column {
-      position: sticky;
-      top: 105px;
+      width: min(760px, 100%);
+      margin: 0 auto 46px;
     }
 
     .project-video-title {
@@ -391,8 +388,13 @@
     }
 
     .projects-grid {
-      grid-template-columns: 1fr;
-      gap: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .projects-grid .card {
+      height: 100%;
     }
 
     .tag {
@@ -679,12 +681,15 @@
       }
 
       .projects-layout {
-        grid-template-columns: 1fr;
-        gap: 38px;
+        display: block;
       }
 
       .project-video-column {
-        position: static;
+        margin-bottom: 34px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
 
       .photo-card img {
@@ -840,6 +845,21 @@
           <span class="tag">nPDF</span>
           <br>
           <a class="project-link" href="https://agenda.infn.it/event/47074/contributions/289298/attachments/149647/228883/DIS2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="View Rojae Mighty's DIS 2026 presentation PDF">See presentation →</a>
+        </div>
+
+        <div class="card">
+          <h3>Invisible Dark Boson Search with ML</h3>
+          <p>
+            Ongoing EIC study extending an invisible scalar- and vector-boson search with
+            machine learning. The project reproduces generator-level cross-section baselines,
+            builds weighted signal and background samples, and trains boosted decision trees
+            to test whether multivariate correlations improve sensitivity beyond rectangular cuts.
+            The current result is a parton-level proof of concept; detector-level validation is next.
+          </p>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Dark Bosons</span>
+          <span class="tag">EIC</span>
+          <span class="tag">C++/ROOT</span>
         </div>
       </div>
     </div>
