@@ -1501,18 +1501,17 @@
         if (!row.length) return;
 
         const availableWidth = galleryWidth - gap * (row.length - 1);
-        const rowHeight = availableWidth / ratioSum;
         let usedWidth = 0;
 
         row.forEach((item, index) => {
           const isLastItem = index === row.length - 1;
           const itemWidth = isLastItem
             ? availableWidth - usedWidth
-            : rowHeight * item.ratio;
+            : availableWidth * (item.ratio / ratioSum);
 
           item.card.style.flex = `0 0 ${itemWidth}px`;
           item.card.style.width = `${itemWidth}px`;
-          item.card.style.height = `${rowHeight}px`;
+          item.card.style.height = `${targetHeight}px`;
           usedWidth += itemWidth;
         });
 
