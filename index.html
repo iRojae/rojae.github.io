@@ -206,6 +206,11 @@
       max-width: 750px;
     }
 
+    .hero-card p strong {
+      color: #8ef3ef;
+      font-weight: 400;
+    }
+
     .hero-portrait-link {
       width: min(100%, 374px);
       aspect-ratio: 4 / 5;
@@ -1122,10 +1127,11 @@
         <h1>Rojae Mighty</h1>
         <h3>Physics Researcher | Machine Learning &amp; Quantitative Modeling</h3>
         <p>
-          Physics undergraduate researcher applying machine learning and computational modeling
-          across quantitative finance and high-energy nuclear physics. His work spans limit-order-book
-          forecasting, gluon saturation, geometric scaling, and collision analysis using Python,
-          scikit-learn, C++/ROOT, and reproducible data workflows.
+          Physics undergraduate researcher building reproducible machine-learning and computational
+          physics workflows. His completed FI-2010 limit-order-book benchmark achieved
+          <strong>73.25% held-out three-class accuracy and 37.88% lower classification error than the
+          majority baseline</strong>. His broader work spans gluon saturation, EIC kinematics, and
+          collision analysis using Python, scikit-learn, C++/ROOT, and reproducible data workflows.
         </p>
 
         <div class="buttons">
@@ -1199,16 +1205,18 @@
         <div class="card">
           <h3>Market Microstructure Forecasting</h3>
           <p>
-            Early-stage project: building a Python ML pipeline on limit order book data to forecast
-            short-horizon mid-price returns and volatility. Current focus is microstructure feature
-            design (order-flow imbalance, spread dynamics), with walk-forward validation and
-            transaction-cost-aware backtesting planned next.
+            Completed end-to-end benchmark for classifying short-horizon limit-order-book movement
+            on real FI-2010 data. The selected histogram gradient-boosting model reached 73.25%
+            held-out three-class accuracy, 61.35% balanced accuracy, and 64.13% macro F1—an
+            improvement of 16.31 percentage points and 37.88% lower error than the majority baseline.
+            Chronological model selection, committed diagnostics, and checksummed data retrieval make
+            the result fully reproducible.
           </p>
-          <span class="tag">Time Series</span>
-          <span class="tag">Machine Learning</span>
+          <span class="tag">Limit Order Books</span>
+          <span class="tag">Gradient Boosting</span>
+          <span class="tag">FI-2010</span>
           <span class="tag">Python</span>
-          <span class="tag">Backtesting</span>
-          <a class="project-link" href="https://github.com/iRojae/market-microstructure-forecasting" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
+          <a class="project-link" href="https://github.com/iRojae/market-microstructure-forecasting" target="_blank" rel="noopener noreferrer">View results &amp; code →</a>
         </div>
 
         <div class="card">
