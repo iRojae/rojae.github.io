@@ -832,7 +832,7 @@
     .photo-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 12px;
       align-items: flex-start;
     }
 
@@ -1492,8 +1492,8 @@
       if (!galleryWidth) return;
 
       const gridStyles = window.getComputedStyle(photoGrid);
-      const gap = Number.parseFloat(gridStyles.columnGap) || 16;
-      const targetHeight = galleryWidth < 520 ? 105 : galleryWidth < 900 ? 185 : 230;
+      const gap = Number.parseFloat(gridStyles.columnGap) || 12;
+      const targetHeight = galleryWidth < 520 ? 110 : galleryWidth < 900 ? 200 : 250;
       let row = [];
       let ratioSum = 0;
 
