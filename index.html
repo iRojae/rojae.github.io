@@ -832,7 +832,7 @@
     .photo-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 6px;
       align-items: flex-start;
     }
 
@@ -841,22 +841,20 @@
       flex: 1 1 260px;
       height: 230px;
       overflow: hidden;
-      border-radius: 20px;
+      border-radius: 3px;
       background: #dce8e7;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
       cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: filter 0.2s ease;
     }
 
     .photo-card:focus-visible {
       outline: 3px solid #007f8f;
       outline-offset: 4px;
-      border-radius: 20px;
+      border-radius: 3px;
     }
 
     .photo-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 38px rgba(0,0,0,0.2);
+      filter: brightness(1.04);
     }
 
     .photo-card img {
@@ -1110,7 +1108,7 @@
       }
 
       .photo-grid {
-        gap: 10px;
+        gap: 6px;
       }
 
       .caption {
@@ -1492,7 +1490,7 @@
       if (!galleryWidth) return;
 
       const gridStyles = window.getComputedStyle(photoGrid);
-      const gap = Number.parseFloat(gridStyles.columnGap) || 12;
+      const gap = Number.parseFloat(gridStyles.columnGap) || 6;
       const targetHeight = galleryWidth < 520
         ? 110
         : galleryWidth < 900
