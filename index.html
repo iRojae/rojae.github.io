@@ -830,14 +830,22 @@
     }
 
     .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-start;
     }
 
     .photo-card {
+      position: relative;
+      flex: 1 1 260px;
+      height: 230px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #dce8e7;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
       cursor: pointer;
-      transition: 0.25s;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .photo-card:focus-visible {
@@ -848,20 +856,30 @@
 
     .photo-card:hover {
       transform: translateY(-6px);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.2);
     }
 
     .photo-card img {
+      display: block;
       width: 100%;
-      height: 245px;
+      height: 100%;
       object-fit: cover;
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+      border-radius: inherit;
     }
 
     .caption {
-      margin-top: 10px;
-      color: #102033;
-      text-align: center;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: 0;
+      padding: 42px 15px 13px;
+      color: white;
+      background: linear-gradient(180deg, transparent, rgba(2, 24, 37, 0.82));
+      font-size: 14px;
+      line-height: 1.35;
+      text-align: left;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
     }
 
     .lightbox {
@@ -1091,8 +1109,16 @@
         padding: 16px;
       }
 
-      .photo-card img {
-        height: 220px;
+      .photo-grid {
+        gap: 10px;
+      }
+
+      .caption {
+        overflow: hidden;
+        padding: 26px 9px 8px;
+        font-size: 11px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .footer-contact {
@@ -1338,57 +1364,57 @@
 
     <div class="photo-grid">
       <div class="photo-card">
-        <img src="images/rojae-mighty-bnl-mini-semester.jpeg" alt="Rojae Mighty at the Brookhaven National Laboratory Mini-Semester">
+        <img src="images/rojae-mighty-bnl-mini-semester.jpeg" width="4032" height="3024" alt="Rojae Mighty at the Brookhaven National Laboratory Mini-Semester">
         <div class="caption">Brookhaven National Lab Mini-Semester — first BNL experience</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-doe-suli-bnl.jpeg" alt="Rojae Mighty during the DOE SULI internship at Brookhaven National Laboratory">
+        <img src="images/rojae-mighty-doe-suli-bnl.jpeg" width="4032" height="3024" alt="Rojae Mighty during the DOE SULI internship at Brookhaven National Laboratory">
         <div class="caption">SULI 2025 Poster Presentation</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-suli-2026-research-group-bnl.jpeg" alt="Rojae Mighty standing with his 2026 SULI research group outside the Physics building at Brookhaven National Laboratory">
+        <img src="images/rojae-mighty-suli-2026-research-group-bnl.jpeg" width="1024" height="768" alt="Rojae Mighty standing with his 2026 SULI research group outside the Physics building at Brookhaven National Laboratory">
         <div class="caption">SULI 2026 Research Group at BNL</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-star-collaboration-event.jpg" alt="Rojae Mighty at a STAR Collaboration basketball event at Brookhaven National Laboratory">
+        <img src="images/rojae-mighty-star-collaboration-event.jpg" width="1707" height="1280" alt="Rojae Mighty at a STAR Collaboration basketball event at Brookhaven National Laboratory">
         <div class="caption">BNL Basketball Tournament, Team STAR</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-research-group-ski-trip.jpeg" alt="Rojae Mighty on a research group ski trip">
+        <img src="images/rojae-mighty-research-group-ski-trip.jpeg" width="4032" height="3024" alt="Rojae Mighty on a research group ski trip">
         <div class="caption">Research Group Ski Trip</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-aps-dnp-conference-presentation.jpg" alt="Rojae Mighty presenting at the APS Division of Nuclear Physics conference">
+        <img src="images/rojae-mighty-aps-dnp-conference-presentation.jpg" width="4000" height="3000" alt="Rojae Mighty presenting at the APS Division of Nuclear Physics conference">
         <div class="caption">APS DNP CEU — first conference presentation</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-dis-2026-bologna.jpeg" alt="Rojae Mighty at the DIS 2026 conference in Bologna, Italy">
+        <img src="images/rojae-mighty-dis-2026-bologna.jpeg" width="800" height="600" alt="Rojae Mighty at the DIS 2026 conference in Bologna, Italy">
         <div class="caption">DIS 2026 at Bologna, Italy — first international conference</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-stony-brook-physics-colloquium.jpeg" alt="Rojae Mighty speaking at the Stony Brook Physics Colloquium">
+        <img src="images/rojae-mighty-stony-brook-physics-colloquium.jpeg" width="5712" height="4284" alt="Rojae Mighty speaking at the Stony Brook Physics Colloquium">
         <div class="caption">Speaking at Stony Brook Physics Colloquium</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-undergraduate-research-day.jpeg" alt="Rojae Mighty celebrating Undergraduate Research Day with Kong and Abhay Deshpande">
+        <img src="images/rojae-mighty-undergraduate-research-day.jpeg" width="4032" height="3024" alt="Rojae Mighty celebrating Undergraduate Research Day with Kong and Abhay Deshpande">
         <div class="caption">Celebrating Undergraduate Research Day with Kong and Abhay Deshpande</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-admitted-seawolves-day.jpeg" alt="Rojae Mighty serving as an Admitted Seawolves Day panelist">
+        <img src="images/rojae-mighty-admitted-seawolves-day.jpeg" width="4000" height="1848" alt="Rojae Mighty serving as an Admitted Seawolves Day panelist">
         <div class="caption">Admitted Seawolves Day Panelist</div>
       </div>
 
       <div class="photo-card">
-        <img src="images/rojae-mighty-deans-student-leadership-council.jpeg" alt="Rojae Mighty on the Dean's Student Leadership and Advisory Council">
+        <img src="images/rojae-mighty-deans-student-leadership-council.jpeg" width="1024" height="712" alt="Rojae Mighty on the Dean's Student Leadership and Advisory Council">
         <div class="caption">Dean's Student Leadership & Advisory Council</div>
       </div>
     </div>
@@ -1454,6 +1480,76 @@
     const projectsSection = document.getElementById('projects');
     const projectVideoToggle = document.querySelector('.video-focus-toggle');
     const projectsContent = document.querySelector('.projects-content');
+    const photoGrid = document.querySelector('.photo-grid');
+    const photoCards = Array.from(cards);
+    let photoLayoutFrame = 0;
+
+    function layoutJustifiedGallery() {
+      photoLayoutFrame = 0;
+      if (!photoGrid || !photoCards.length) return;
+
+      const galleryWidth = photoGrid.clientWidth;
+      if (!galleryWidth) return;
+
+      const gridStyles = window.getComputedStyle(photoGrid);
+      const gap = Number.parseFloat(gridStyles.columnGap) || 16;
+      const targetHeight = galleryWidth < 520 ? 105 : galleryWidth < 900 ? 185 : 230;
+      let row = [];
+      let ratioSum = 0;
+
+      const sizeRow = () => {
+        if (!row.length) return;
+
+        const availableWidth = galleryWidth - gap * (row.length - 1);
+        const rowHeight = availableWidth / ratioSum;
+        let usedWidth = 0;
+
+        row.forEach((item, index) => {
+          const isLastItem = index === row.length - 1;
+          const itemWidth = isLastItem
+            ? availableWidth - usedWidth
+            : rowHeight * item.ratio;
+
+          item.card.style.flex = `0 0 ${itemWidth}px`;
+          item.card.style.width = `${itemWidth}px`;
+          item.card.style.height = `${rowHeight}px`;
+          usedWidth += itemWidth;
+        });
+
+        row = [];
+        ratioSum = 0;
+      };
+
+      photoCards.forEach((card, index) => {
+        const image = card.querySelector('img');
+        const imageWidth = Number(image.getAttribute('width')) || image.naturalWidth || 4;
+        const imageHeight = Number(image.getAttribute('height')) || image.naturalHeight || 3;
+        const ratio = imageWidth / imageHeight;
+
+        row.push({ card, ratio });
+        ratioSum += ratio;
+
+        const projectedHeight = (galleryWidth - gap * (row.length - 1)) / ratioSum;
+        const remainingPhotos = photoCards.length - index - 1;
+
+        if (projectedHeight <= targetHeight && remainingPhotos !== 1) {
+          sizeRow();
+        }
+      });
+
+      sizeRow();
+    }
+
+    function schedulePhotoGalleryLayout() {
+      if (photoLayoutFrame) return;
+      photoLayoutFrame = window.requestAnimationFrame(layoutJustifiedGallery);
+    }
+
+    if (photoGrid) {
+      window.addEventListener('resize', schedulePhotoGalleryLayout, { passive: true });
+      window.addEventListener('load', schedulePhotoGalleryLayout);
+      schedulePhotoGalleryLayout();
+    }
 
     function closeMobileNav() {
       if (!nav || !navToggle) return;
