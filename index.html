@@ -834,6 +834,15 @@
       flex-wrap: wrap;
       gap: 6px;
       align-items: flex-start;
+      justify-content: center;
+    }
+
+    .photo-row {
+      display: flex;
+      flex: 0 0 100%;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
     }
 
     .photo-card {
@@ -1573,22 +1582,38 @@
 
         const ratioSum = row.reduce((sum, item) => sum + item.ratio, 0);
         const availableWidth = galleryWidth - gap * (row.length - 1);
+        const naturalRowWidth = targetHeight * ratioSum + gap * (row.length - 1);
+        const shouldCompress = naturalRowWidth > galleryWidth;
+        const rowElement = document.createElement('div');
         let usedWidth = 0;
+
+        rowElement.className = 'photo-row';
 
         row.forEach((item, index) => {
           const isLastItem = index === row.length - 1;
-          const itemWidth = isLastItem
-            ? availableWidth - usedWidth
-            : availableWidth * (item.ratio / ratioSum);
+          const itemWidth = shouldCompress
+            ? isLastItem
+              ? availableWidth - usedWidth
+              : availableWidth * (item.ratio / ratioSum)
+            : targetHeight * item.ratio;
 
           item.card.style.flex = `0 0 ${itemWidth}px`;
           item.card.style.width = `${itemWidth}px`;
           item.card.style.height = `${targetHeight}px`;
           usedWidth += itemWidth;
+          rowElement.append(item.card);
         });
+
+        return rowElement;
       };
 
-      balancedRows.forEach(sizeRow);
+      const galleryRows = document.createDocumentFragment();
+
+      balancedRows.forEach(row => {
+        galleryRows.append(sizeRow(row));
+      });
+
+      photoGrid.replaceChildren(galleryRows);
     }
 
     function schedulePhotoGalleryLayout() {
