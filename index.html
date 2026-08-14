@@ -1493,13 +1493,87 @@
 
       const gridStyles = window.getComputedStyle(photoGrid);
       const gap = Number.parseFloat(gridStyles.columnGap) || 12;
-      const targetHeight = galleryWidth < 520 ? 110 : galleryWidth < 900 ? 200 : 250;
-      let row = [];
-      let ratioSum = 0;
+      const targetHeight = galleryWidth < 520
+        ? 110
+        : galleryWidth < 900
+          ? 200
+          : galleryWidth < 1600
+            ? 250
+            : Math.min(400, 250 + (galleryWidth - 1600) * 0.1);
+      const items = photoCards.map(card => {
+        const image = card.querySelector('img');
+        const imageWidth = Number(image.getAttribute('width')) || image.naturalWidth || 4;
+        const imageHeight = Number(image.getAttribute('height')) || image.naturalHeight || 3;
 
-      const sizeRow = () => {
+        return { card, ratio: imageWidth / imageHeight };
+      });
+      const ratioPrefix = [0];
+
+      items.forEach(item => {
+        ratioPrefix.push(ratioPrefix[ratioPrefix.length - 1] + item.ratio);
+      });
+
+      const minimumRows = items.length > 3 ? 2 : 1;
+      const maximumRows = Math.max(minimumRows, Math.floor(items.length / 2));
+      let balancedRows = [items];
+      let bestScore = Number.POSITIVE_INFINITY;
+
+      for (let rowCount = minimumRows; rowCount <= maximumRows; rowCount += 1) {
+        const costs = Array.from(
+          { length: rowCount + 1 },
+          () => Array(items.length + 1).fill(Number.POSITIVE_INFINITY)
+        );
+        const previousBreak = Array.from(
+          { length: rowCount + 1 },
+          () => Array(items.length + 1).fill(-1)
+        );
+
+        costs[0][0] = 0;
+
+        for (let rowNumber = 1; rowNumber <= rowCount; rowNumber += 1) {
+          const minimumEnd = rowNumber * 2;
+          const maximumEnd = items.length - (rowCount - rowNumber) * 2;
+
+          for (let end = minimumEnd; end <= maximumEnd; end += 1) {
+            for (let start = (rowNumber - 1) * 2; start <= end - 2; start += 1) {
+              if (!Number.isFinite(costs[rowNumber - 1][start])) continue;
+
+              const itemCount = end - start;
+              const availableWidth = galleryWidth - gap * (itemCount - 1);
+              const ratioSum = ratioPrefix[end] - ratioPrefix[start];
+              const naturalHeight = availableWidth / ratioSum;
+              const heightDifference = Math.log(naturalHeight / targetHeight);
+              const cost = costs[rowNumber - 1][start] + heightDifference * heightDifference;
+
+              if (cost < costs[rowNumber][end]) {
+                costs[rowNumber][end] = cost;
+                previousBreak[rowNumber][end] = start;
+              }
+            }
+          }
+        }
+
+        const score = costs[rowCount][items.length] / rowCount;
+
+        if (score < bestScore) {
+          const rows = [];
+          let end = items.length;
+
+          for (let rowNumber = rowCount; rowNumber > 0; rowNumber -= 1) {
+            const start = previousBreak[rowNumber][end];
+            rows.unshift(items.slice(start, end));
+            end = start;
+          }
+
+          bestScore = score;
+          balancedRows = rows;
+        }
+      }
+
+      const sizeRow = row => {
         if (!row.length) return;
 
+        const ratioSum = row.reduce((sum, item) => sum + item.ratio, 0);
         const availableWidth = galleryWidth - gap * (row.length - 1);
         let usedWidth = 0;
 
@@ -1514,29 +1588,9 @@
           item.card.style.height = `${targetHeight}px`;
           usedWidth += itemWidth;
         });
-
-        row = [];
-        ratioSum = 0;
       };
 
-      photoCards.forEach((card, index) => {
-        const image = card.querySelector('img');
-        const imageWidth = Number(image.getAttribute('width')) || image.naturalWidth || 4;
-        const imageHeight = Number(image.getAttribute('height')) || image.naturalHeight || 3;
-        const ratio = imageWidth / imageHeight;
-
-        row.push({ card, ratio });
-        ratioSum += ratio;
-
-        const projectedHeight = (galleryWidth - gap * (row.length - 1)) / ratioSum;
-        const remainingPhotos = photoCards.length - index - 1;
-
-        if (projectedHeight <= targetHeight && remainingPhotos !== 1) {
-          sizeRow();
-        }
-      });
-
-      sizeRow();
+      balancedRows.forEach(sizeRow);
     }
 
     function schedulePhotoGalleryLayout() {
