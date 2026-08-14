@@ -892,40 +892,103 @@
       border-radius: 8px;
     }
 
-    footer {
-      padding: 45px 8%;
-      text-align: center;
+    footer#contact {
+      padding: 42px 8% 24px;
       background: #06293d;
       color: white;
+      scroll-margin-top: 80px;
     }
 
     footer a {
       color: #8ef3ef;
       text-decoration: none;
-      margin: 0 10px;
     }
 
-    #contact {
-      position: relative;
-      background: linear-gradient(180deg, rgba(247, 251, 255, 0) 0%, rgba(233, 251, 255, 0.68) 42%, rgba(236, 255, 248, 0.96) 100%);
-      isolation: isolate;
+    .footer-contact {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding-bottom: 30px;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+      gap: clamp(28px, 5vw, 70px);
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     }
 
-    #contact > * {
-      position: relative;
-      z-index: 1;
+    .footer-contact-copy h2 {
+      margin-bottom: 8px;
+      color: #ffffff;
+      font-size: clamp(27px, 3vw, 36px);
+      font-weight: 200;
     }
 
-    #contact::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: -220px;
-      height: 220px;
-      z-index: 0;
-      pointer-events: none;
-      background: linear-gradient(0deg, rgba(233, 251, 255, 0.52) 0%, rgba(247, 251, 255, 0) 100%);
+    .footer-contact-copy p {
+      max-width: 480px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 15px;
+    }
+
+    .footer-contact-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    footer .footer-contact-link {
+      min-width: 0;
+      margin: 0;
+      padding: 14px 16px;
+      border-radius: 15px;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    footer .footer-contact-link:hover,
+    footer .footer-contact-link:focus-visible {
+      background: rgba(142, 243, 239, 0.16);
+      transform: translateY(-2px);
+    }
+
+    .footer-contact-link span {
+      display: block;
+      margin-bottom: 3px;
+      color: #8ef3ef;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .footer-contact-link strong {
+      display: block;
+      overflow: hidden;
+      font-size: 13px;
+      font-weight: 400;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .footer-bottom {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+    }
+
+    footer .footer-nav a {
+      margin: 0;
     }
 
     @media (max-width: 760px) {
@@ -1009,9 +1072,26 @@
         height: 220px;
       }
 
-      #contact::before {
-        top: -150px;
-        height: 150px;
+      .footer-contact {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-contact-copy p {
+        margin: 0 auto;
+      }
+
+      .footer-contact-links {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-nav {
+        justify-content: center;
       }
     }
 
@@ -1295,39 +1375,38 @@
     <p id="lightbox-caption"></p>
   </div>
 
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p class="section-subtitle">
-      For research, collaboration, graduate school, or internship opportunities.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Email</h3>
-        <p><a href="mailto:rojae.mighty@stonybrook.edu">rojae.mighty@stonybrook.edu</a></p>
+  <footer id="contact">
+    <div class="footer-contact">
+      <div class="footer-contact-copy">
+        <h2>Let’s Connect</h2>
+        <p>For research, collaboration, graduate school, or internship opportunities.</p>
       </div>
 
-      <div class="card">
-        <h3>LinkedIn</h3>
-        <p><a href="https://www.linkedin.com/in/rojaemight/" target="_blank">linkedin.com/in/rojaemight</a></p>
-      </div>
-
-      <div class="card">
-        <h3>GitHub</h3>
-        <p><a href="https://github.com/iRojae" target="_blank">github.com/iRojae</a></p>
+      <div class="footer-contact-links">
+        <a class="footer-contact-link" href="mailto:rojae.mighty@stonybrook.edu">
+          <span>Email</span>
+          <strong>rojae.mighty@stonybrook.edu</strong>
+        </a>
+        <a class="footer-contact-link" href="https://www.linkedin.com/in/rojaemight/" target="_blank" rel="noopener noreferrer">
+          <span>LinkedIn</span>
+          <strong>linkedin.com/in/rojaemight</strong>
+        </a>
+        <a class="footer-contact-link" href="https://github.com/iRojae" target="_blank" rel="noopener noreferrer">
+          <span>GitHub</span>
+          <strong>github.com/iRojae</strong>
+        </a>
       </div>
     </div>
-  </section>
 
-  <footer>
-    <p>© 2026 Rojae Mighty</p>
-    <p>
-      <a href="#hero">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#awards">Awards</a>
-      <a href="#photos">Photos</a>
-      <a href="#contact">Contact</a>
-    </p>
+    <div class="footer-bottom">
+      <p>© 2026 Rojae Mighty</p>
+      <div class="footer-nav" aria-label="Footer navigation">
+        <a href="#hero">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#awards">Awards</a>
+        <a href="#photos">Photos</a>
+      </div>
+    </div>
   </footer>
 
   <script>
