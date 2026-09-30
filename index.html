@@ -470,7 +470,7 @@
       display: block;
       margin-bottom: 8px;
       font-size: clamp(30px, 5vw, 52px);
-      font-weight: 700;
+      font-weight: 200;
       line-height: 1.1;
     }
 
@@ -1449,6 +1449,50 @@
       }
     }
 
+    @media (max-width: 540px) {
+      #about .grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      #about .card,
+      .projects-grid .card {
+        padding: 18px;
+        border-radius: 17px;
+      }
+
+      #about .card h3,
+      .projects-grid .card h3 {
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      #about .card p,
+      .projects-grid .card p {
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .projects-grid .card p {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        line-clamp: 6;
+      }
+
+      .projects-grid .tag {
+        padding: 4px 7px;
+        font-size: 9px;
+      }
+
+      .projects-grid .project-link {
+        margin-top: 10px;
+        font-size: 11px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1476,10 +1520,11 @@
         <h1>Rojae Mighty</h1>
         <h3>Physics Researcher | Machine Learning &amp; Quantitative Modeling</h3>
       <p>
-        Physics undergraduate researcher working at the intersection of quantitative finance,
-        machine learning, and high energy nuclear physics, applying data driven modeling to
-        limit order book dynamics, gluon saturation, geometric scaling, and particle collision
-        analysis with Python, numerical methods, C++/ROOT, and reproducible computational workflows.
+        Nuclear and high-energy physics undergraduate researcher focused on low-x QCD, diffraction,
+        gluon saturation, and dark-boson searches at the Electron-Ion Collider. Uses Python,
+        C++/ROOT, machine learning, and reproducible simulations to study particle collisions,
+        while also developing gamma-ray-burst mission science for ѰSat through NASA Space Grant
+        and exploring quantitative modeling in finance.
       </p>
 
         <div class="buttons">
@@ -1501,6 +1546,7 @@
       <div class="card">
         <h3>Academic Focus</h3>
         <p>
+          B.S. Physics candidate at Stony Brook University, expected May 2027.
           His academic work centers on the future Electron-Ion Collider, which will probe
           the structure of protons and nuclei through the quarks and gluons that make them up.
           His work helps build expectations for what the EIC should measure and how those
@@ -1551,37 +1597,6 @@
 
       <div class="grid projects-grid">
         <div class="card">
-          <h3>Market Microstructure Forecasting</h3>
-          <p>
-            Completed end-to-end benchmark for classifying short-horizon limit-order-book movement
-            on real FI-2010 data. The selected histogram gradient-boosting model reached 73.25%
-            held-out three-class accuracy, 61.35% balanced accuracy, and 64.13% macro F1—an
-            improvement of 16.31 percentage points and 37.88% lower error than the majority baseline.
-            Chronological model selection, committed diagnostics, and checksummed data retrieval make
-            the result fully reproducible.
-          </p>
-          <span class="tag">Limit Order Books</span>
-          <span class="tag">Gradient Boosting</span>
-          <span class="tag">FI-2010</span>
-          <span class="tag">Python</span>
-          <a class="project-link" href="https://github.com/iRojae/market-microstructure-forecasting" target="_blank" rel="noopener noreferrer">View results &amp; code →</a>
-        </div>
-
-        <div class="card">
-          <h3>EIC Kinematic Reconstruction</h3>
-          <p>
-            Before researchers can study electron–nucleus collisions, they must reconstruct
-            key kinematic quantities for diffractive procces. This time-intensive step can slow
-            the analysis of large datasets. This project uses machine learning to make
-            reconstruction faster and more accurate, improving data-analysis efficiency
-            across the international electron-Proton/Ion Collider (ePIC) collaboration.
-          </p>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Kinematics</span>
-          <span class="tag">ePIC</span>
-        </div>
-
-        <div class="card">
           <h3>Gluon Saturation at the EIC</h3>
           <p>
             At high energies, gluons multiply until their growth may begin to saturate,
@@ -1601,20 +1616,54 @@
         <div class="card">
           <h3>Invisible Dark Boson Search with ML</h3>
           <p>
-            Ongoing EIC study extending an invisible scalar- and vector-boson search with
-            machine learning. The project reproduces generator-level cross-section baselines,
-            builds weighted signal and background samples, and trains boosted decision trees
-            to test whether multivariate correlations improve sensitivity beyond rectangular cuts.
-            The current result is a parton-level proof of concept; detector-level validation is next.
+            Developed a weighted C++/ROOT simulation across 22 model scenarios and reproduced
+            published benchmarks within 0.4-2.4%. Across 60 independently seeded comparisons,
+            boosted decision trees improved sensitivity by 1.21-1.36%, equivalent to a 2.5-2.8%
+            gain in detection significance or about 5% less required data, and outperformed the
+            benchmark in 20/20 high-mass tests. Detector-level validation is the next step.
           </p>
           <span class="tag">Machine Learning</span>
           <span class="tag">Dark Bosons</span>
           <span class="tag">EIC</span>
           <span class="tag">C++/ROOT</span>
+          <br>
+          <a class="project-link" href="https://arxiv.org/abs/2609.22484" target="_blank" rel="noopener noreferrer" aria-label="Read Machine Learning for Invisible Dark Boson Searches at the Electron-Ion Collider on arXiv">Read the arXiv paper →</a>
+        </div>
+
+        <div class="card">
+          <h3>ѰSat</h3>
+          <p>
+            The ѰSat mission is a NASA CubeSat Initiative project centered on a 1U CubeSat
+            designed to detect gamma rays from cosmic bursts. The work defines the mission's
+            science goals and 30–300 keV detection strategy, communicates its objectives through
+            technical presentations, and plans how future detections could be studied alongside
+            gravitational-wave and other transient observations.
+          </p>
+          <span class="tag">NASA Space Grant</span>
+          <span class="tag">1U CubeSat</span>
+          <span class="tag">Gamma-Ray Bursts</span>
+          <span class="tag">Multimessenger Astrophysics</span>
+        </div>
+
+        <div class="card">
+          <h3>Market Microstructure Forecasting</h3>
+          <p>
+            Completed end-to-end benchmark for classifying short-horizon limit-order-book movement
+            on real FI-2010 data. The selected histogram gradient-boosting model reached 73.25%
+            held-out three-class accuracy, 61.35% balanced accuracy, and 64.13% macro F1—an
+            improvement of 16.31 percentage points and 37.88% lower error than the majority baseline.
+            Chronological model selection, committed diagnostics, and checksummed data retrieval make
+            the result fully reproducible.
+          </p>
+          <span class="tag">Limit Order Books</span>
+          <span class="tag">Gradient Boosting</span>
+          <span class="tag">FI-2010</span>
+          <span class="tag">Python</span>
+          <a class="project-link" href="https://github.com/iRojae/market-microstructure-forecasting" target="_blank" rel="noopener noreferrer">View results &amp; code →</a>
         </div>
       </div>
-      <a class="video-source-link" href="https://www.bnl.gov/eic/" target="_blank" rel="noopener noreferrer">EIC visual · bnl.gov/eic</a>
     </div>
+    <a class="video-source-link" href="https://www.bnl.gov/eic/" target="_blank" rel="noopener noreferrer">EIC visual · bnl.gov/eic</a>
   </section>
 
   <div id="project-modal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" hidden>
@@ -1631,6 +1680,13 @@
     </p>
 
     <div class="awards-grid">
+      <div class="slide" style="background-image: url('images/psisat-earth-orbit.png');" role="img" aria-label="Earth and the Moon viewed from orbit, representing Rojae Mighty's NASA New York Space Grant Research Award">
+        <div class="slide-content">
+          <h3>NASA New York Space Grant Research Award</h3>
+          <p>Awarded for ѰSat project, a 1U CubeSat gamma-ray detector.</p>
+        </div>
+      </div>
+
       <div class="slide" style="background-image: url('images/rojae-mighty-yale-research-conference.jpeg');" role="img" aria-label="Rojae Mighty at the Yale Undergraduate Research Conference">
         <div class="slide-content">
           <h3>1st Place, Physical Sciences Presentation</h3>
